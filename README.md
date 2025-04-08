@@ -14,7 +14,7 @@ For a deeper look at the purpose, principles, and core structure of this knowled
 
 ## 📂 Key Focus Areas
 
-- Printer Infrastructure (setup, logging, and response)
+- Printer Infrastructure (setup, logging, and strategic response with NLP)
 - Azure Functions and App Services
 - Cloud Architecture Patterns
 - Identity & Access (AD, Entra ID)
