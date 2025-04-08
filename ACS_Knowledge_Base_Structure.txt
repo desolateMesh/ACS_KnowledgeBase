@@ -52,6 +52,60 @@ ACS_KnowledgeBase/
 │       ├── HIPAA-Compliant Print Workflows.md
 │       └── ISO 27001 for Print Infrastructure.md
 │
+ACS_KnowledgeBase/
+├── Executive Summary.md
+├── Comprehensive Guide to Printer Setups/
+│   ├── Printer Ecosystem/
+│   │   ├── Driver Management/
+│   │   │   ├── Installation Methods/
+│   │   │   │   ├── Cloud-Based Driver Deployment.md
+│   │   │   │   └── Linux-Unix Driver Compatibility Guide.md
+│   │   │   └── Driver Rollback and Version Control.md
+│   │   ├── Network Configuration/
+│   │   │   ├── Cloud Printing Protocols/
+│   │   │   │   ├── Google Cloud Print Migration Guide.md
+│   │   │   │   ├── Mopria Alliance Standards.md
+│   │   │   │   └── AirPrint Configuration for Enterprise.md
+│   │   │   └── SD-WAN Optimization for Distributed Printers.md
+│   │   ├── Security Framework/
+│   │   │   ├── Zero-Trust Printer Models.md
+│   │   │   ├── Firmware Security Patching Workflows.md
+│   │   │   └── AI-Driven Threat Detection for Print Jobs.md
+│   │   └── Maintenance Hub/
+│   │       ├── Predictive Maintenance with IoT Sensors.md
+│   │       └── 3D Printer Maintenance Addendum.md
+│   └── Troubleshooting Center/
+│       ├── Cloud Print Job Failures.md
+│       ├── Cross-Platform Compatibility Issues.md
+│       └── API Integration Debugging Guide.md
+│
+├── Cloud Service Management/
+│   ├── Multi-Cloud Print Strategies/
+│   │   ├── AWS IoT Print Integration.md
+│   │   ├── Azure Universal Print Deployment.md
+│   │   └── Hybrid Cloud Print Architectures.md
+│   ├── Serverless Print Workflows/
+│   │   ├── AWS Lambda Print Queues.md
+│   │   └── Azure Functions for Print Automation.md
+│   ├── Edge Computing for Printers/
+│   │   ├── Localized Print Job Processing.md
+│   │   └── IoT Gateway Configuration.md
+│   └── Disaster Recovery/
+│       ├── Cloud Print Redundancy Plans.md
+│       └── Backup Strategies for On-Prem Print Servers.md
+│
+├── Sustainability & Compliance/
+│   ├── Energy-Efficient Configuration Guides/
+│   │   ├── Power Saving Modes Optimization.md
+│   │   └── ENERGY STAR Certification Setup.md
+│   ├── Recycling & Circular Economy/
+│   │   ├── Toner Cartridge Recycling Programs.md
+│   │   └── Printer Hardware EOL Disposal SOPs.md
+│   └── Regulatory Compliance/
+│       ├── GDPR Print Job Logging Requirements.md
+│       ├── HIPAA-Compliant Print Workflows.md
+│       └── ISO 27001 for Print Infrastructure.md
+│
 ├── Advanced Use Cases/
 │   ├── High-Volume Environments/
 │   │   ├── 1_Scalability_and_Elasticity/
@@ -65,39 +119,123 @@ ACS_KnowledgeBase/
 │   │   │       ├── Metrics-Based_Scaling.md
 │   │   │       └── Azure_Autoscale_Configuration.md
 │   │   ├── 2_Performance_Optimization/
-│   │   │   ├── ... (full performance optimization substructure from previous)
+│   │   │   └── ...
 │   │   ├── 3_High_Availability_Disaster_Recovery/
-│   │   │   ├── ... (full HA/DR substructure from previous)
+│   │   │   └── ...
 │   │   ├── 4_Capacity_Planning/
-│   │   │   ├── ... (full capacity planning substructure from previous)
+│   │   │   └── ...
 │   │   ├── Azure_Architecture_Resources/
-│   │   │   ├── ... (architecture resources substructure from previous)
+│   │   │   ├── Reference Architectures/
+│   │   │   │   ├── General High Availability/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       └── template.json
+│   │   │   ├── Scalability Strategies/
+│   │   │   │   ├── Scaling App Services/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       ├── template.json
+│   │   │   │   │       └── autoscale-settings.json
+│   │   │   ├── Resiliency Designs/
+│   │   │   │   ├── Azure Regions and Paired Regions/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       └── template.json
+│   │   │   ├── Cost Optimization Guides/
+│   │   │   │   ├── Azure Reservations and Savings Plans/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       └── template.json
+│   │   │   ├── Network Design/
+│   │   │   │   ├── ExpressRoute Architectures/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       └── template.json
+│   │   │   ├── Security Modeling/
+│   │   │   │   ├── Key Vault Architecture/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       └── template.json
+│   │   │   ├── Automation and DevOps/
+│   │   │   │   ├── Bicep Templates for High Scale/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       ├── template.json
+│   │   │   │   │       └── autoscale-settings.json
+│   │   │   │   ├── Terraform Azure Landing Zones/
+│   │   │   │   │   ├── ...
+│   │   │   │   ├── Multi-Stage Azure Pipelines/
+│   │   │   │   │   ├── ...
+│   │   │   │   ├── GitHub Actions for Multi-Region Deployments/
+│   │   │   │   │   ├── ...
+│   │   │   │   ├── Deploying ACR and AKS at Scale/
+│   │   │   │   │   ├── ... (including autoscale-settings.json)
+│   │   │   │   ├── Environment Promotion Strategies/
+│   │   │   │   │   ├── ...
+│   │   │   ├── Data Architectures/
+│   │   │   │   ├── Cosmos DB Global Distribution/
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── design-patterns.md
+│   │   │   │   │   ├── implementation-guide.md
+│   │   │   │   │   ├── troubleshooting.md
+│   │   │   │   │   ├── real-world-examples.md
+│   │   │   │   │   ├── diagrams/
+│   │   │   │   │   │   └── architecture.drawio
+│   │   │   │   │   └── infra-samples/
+│   │   │   │   │       └── template.json
+│   │   │   ├── Logging Monitoring and Observability/
+│   │   │   │   ├── Log Analytics Workspaces for Enterprise/
+│   │   │   │   │   ├── ...
+│   │   │   └── Industry Specific Architectures/
+│   │   │       ├── Healthcare HIPAA Ready Architecture/
+│   │   │       │   ├── ...
+│   │   │
 │   │   ├── Integration_Guidelines/
-│   │   │   ├── ... (integration guidelines from previous)
-│   │   └── Existing Files/
 │   │       ├── Data Center Printer Scaling.md
 │   │       └── Load Balancing Print Servers.md
-│   │
-│   ├── Secure Environments/
-│   │   ├── Air-Gapped Network Printing.md
-│   │   └── SCIF-Compliant Printer Setup.md
-│   │
-│   └── Innovation Labs/
-│       ├── 1_Experimentation_Framework/
-│       │   ├── ... (full experimentation framework substructure from previous)
-│       ├── 2_Emerging_Technologies/
-│       │   ├── ... (full emerging tech substructure from previous)
-│       ├── 3_Collaboration_Environment/
-│       │   ├── ... (full collaboration substructure from previous)
-│       ├── 4_Project_Lifecycle_Management/
-│       │   ├── ... (full lifecycle management substructure from previous)
-│       ├── Azure_Innovation_Resources/
-│       │   ├── ... (innovation resources substructure from previous)
-│       ├── Integration_Guidelines/
-│       │   ├── ... (integration guidelines from previous)
-│       └── Existing Files/
-│           ├── Blockchain-Based Print Job Auditing.md
-│           └── AR-VR-Assisted Printer Diagnostics.md
+│   │   │
 │   ├── Secure Environments/
 │   │   ├── 1_Security_Frameworks/
 │   │   │   ├── Zero_Trust_Architecture/
