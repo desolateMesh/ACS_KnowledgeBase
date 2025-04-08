@@ -1,6 +1,6 @@
 # ACS Knowledge Base
 
-> If you find an empty directory, refer to the Application Structure document to determine the appropriate Markdown file to create. (This structure will be added soon.)
+> If you find an empty directory, refer to the Application Structure document to determine the appropriate Markdown file to create, ACS_Knowledge_Base_Structure.txt.
 
 ## 📘 Overview
 
@@ -14,7 +14,7 @@ For a deeper look at the purpose, principles, and core structure of this knowled
 
 ## 📂 Key Focus Areas
 
-- Printer Infrastructure (setup, logging, and response)
+- Printer Infrastructure (setup, logging, and strategic response with NLP)
 - Azure Functions and App Services
 - Cloud Architecture Patterns
 - Identity & Access (AD, Entra ID)
