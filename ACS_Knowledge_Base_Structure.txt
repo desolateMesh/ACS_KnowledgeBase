@@ -1,0 +1,1172 @@
+ACS_KnowledgeBase/
+├── Executive Summary.md
+├── Comprehensive Guide to Printer Setups/
+│   ├── Printer Ecosystem/
+│   │   ├── Driver Management/
+│   │   │   ├── Installation Methods/
+│   │   │   │   ├── Cloud-Based Driver Deployment.md (e.g., Intune/Endpoint Manager)
+│   │   │   │   └── Linux-Unix Driver Compatibility Guide.md
+│   │   │   └── Driver Rollback and Version Control.md
+│   │   ├── Network Configuration/
+│   │   │   ├── Cloud Printing Protocols/
+│   │   │   │   ├── Google Cloud Print Migration Guide.md
+│   │   │   │   ├── Mopria Alliance Standards.md
+│   │   │   │   └── AirPrint Configuration for Enterprise.md
+│   │   │   └── SD-WAN Optimization for Distributed Printers.md
+│   │   ├── Security Framework/
+│   │   │   ├── Zero-Trust Printer Models.md
+│   │   │   ├── Firmware Security Patching Workflows.md
+│   │   │   └── AI-Driven Threat Detection for Print Jobs.md
+│   │   └── Maintenance Hub/
+│   │       ├── Predictive Maintenance with IoT Sensors.md
+│   │       └── 3D Printer Maintenance Addendum.md
+│   └── Troubleshooting Center/
+│       ├── Cloud Print Job Failures.md
+│       ├── Cross-Platform Compatibility Issues.md (macOS/Linux/Windows)
+│       └── API Integration Debugging Guide.md (e.g., REST/SOAP)
+│
+├── Cloud Service Management/
+│   ├── Multi-Cloud Print Strategies/
+│   │   ├── AWS IoT Print Integration.md
+│   │   ├── Azure Universal Print Deployment.md
+│   │   └── Hybrid Cloud Print Architectures.md
+│   ├── Serverless Print Workflows/
+│   │   ├── AWS Lambda Print Queues.md
+│   │   └── Azure Functions for Print Automation.md
+│   ├── Edge Computing for Printers/
+│   │   ├── Localized Print Job Processing.md
+│   │   └── IoT Gateway Configuration.md
+│   └── Disaster Recovery/
+│       ├── Cloud Print Redundancy Plans.md
+│       └── Backup Strategies for On-Prem Print Servers.md
+│
+├── Sustainability & Compliance/
+│   ├── Energy-Efficient Configuration Guides/
+│   │   ├── Power Saving Modes Optimization.md
+│   │   └── ENERGY STAR Certification Setup.md
+│   ├── Recycling & Circular Economy/
+│   │   ├── Toner Cartridge Recycling Programs.md
+│   │   └── Printer Hardware EOL Disposal SOPs.md
+│   └── Regulatory Compliance/
+│       ├── GDPR Print Job Logging Requirements.md
+│       ├── HIPAA-Compliant Print Workflows.md
+│       └── ISO 27001 for Print Infrastructure.md
+│
+├── Advanced Use Cases/
+│   ├── High-Volume Environments/
+│   │   ├── 1_Scalability_and_Elasticity/
+│   │   │   ├── Concepts/
+│   │   │   │   ├── Scaling_vs_Elasticity.md
+│   │   │   │   └── Horizontal_vs_Vertical_Scaling.md
+│   │   │   ├── Architectural_Patterns/
+│   │   │   │   ├── Sharding_Partitioning.md
+│   │   │   │   └── Message_Queues.md
+│   │   │   └── Autoscaling_Strategies/
+│   │   │       ├── Metrics-Based_Scaling.md
+│   │   │       └── Azure_Autoscale_Configuration.md
+│   │   ├── 2_Performance_Optimization/
+│   │   │   ├── ... (full performance optimization substructure from previous)
+│   │   ├── 3_High_Availability_Disaster_Recovery/
+│   │   │   ├── ... (full HA/DR substructure from previous)
+│   │   ├── 4_Capacity_Planning/
+│   │   │   ├── ... (full capacity planning substructure from previous)
+│   │   ├── Azure_Architecture_Resources/
+│   │   │   ├── ... (architecture resources substructure from previous)
+│   │   ├── Integration_Guidelines/
+│   │   │   ├── ... (integration guidelines from previous)
+│   │   └── Existing Files/
+│   │       ├── Data Center Printer Scaling.md
+│   │       └── Load Balancing Print Servers.md
+│   │
+│   ├── Secure Environments/
+│   │   ├── Air-Gapped Network Printing.md
+│   │   └── SCIF-Compliant Printer Setup.md
+│   │
+│   └── Innovation Labs/
+│       ├── 1_Experimentation_Framework/
+│       │   ├── ... (full experimentation framework substructure from previous)
+│       ├── 2_Emerging_Technologies/
+│       │   ├── ... (full emerging tech substructure from previous)
+│       ├── 3_Collaboration_Environment/
+│       │   ├── ... (full collaboration substructure from previous)
+│       ├── 4_Project_Lifecycle_Management/
+│       │   ├── ... (full lifecycle management substructure from previous)
+│       ├── Azure_Innovation_Resources/
+│       │   ├── ... (innovation resources substructure from previous)
+│       ├── Integration_Guidelines/
+│       │   ├── ... (integration guidelines from previous)
+│       └── Existing Files/
+│           ├── Blockchain-Based Print Job Auditing.md
+│           └── AR-VR-Assisted Printer Diagnostics.md
+│   ├── Secure Environments/
+│   │   ├── 1_Security_Frameworks/
+│   │   │   ├── Zero_Trust_Architecture/
+│   │   │   │   ├── Printer_Zero_Trust_Models.md
+│   │   │   │   └── Device_Identity_Verification.md
+│   │   │   └── Compliance_Standards/
+│   │   │       ├── SCIF_Implementation/
+│   │   │       │   ├── SCIF-Compliant_Printer_Setup.md
+│   │   │       │   └── TEMPEST_Requirements.md
+│   │   │       ├── HIPAA_Print_Workflows.md
+│   │   │       └── FedRAMP_Configuration.md
+│   │   │
+│   │   ├── 2_Access_Control/
+│   │   │   ├── Authentication_Systems/
+│   │   │   │   ├── Biometric_Print_Release.md
+│   │   │   │   └── Smartcard_Integration.md
+│   │   │   ├── RBAC_Models/
+│   │   │   │   ├── Departmental_Access_Tiers.md
+│   │   │   │   └── Print_Job_Elevation.md
+│   │   │   └── Network_Segmentation/
+│   │   │       ├── Air-Gapped_Networking/
+│   │   │       │   ├── Air-Gapped_Network_Printing.md
+│   │   │       │   └── Data_Diode_Implementation.md
+│   │   │       └── VLAN_Separation.md
+│   │   │
+│   │   ├── 3_Data_Protection/
+│   │   │   ├── Encryption_Standards/
+│   │   │   │   ├── FIPS_140-2_Compliance.md
+│   │   │   │   └── Quantum-Resistant_Crypto.md
+│   │   │   ├── Secure_Print_Workflows/
+│   │   │   │   ├── Encrypted_Print_Jobs.md
+│   │   │   │   └── Secure_Release_Stations.md
+│   │   │   └── Data_Remanence_Prevention/
+│   │   │       ├── Hard_Drive_Sanitization.md
+│   │   │       └── Volatile_Memory_Printers.md
+│   │   │
+│   │   ├── 4_Monitoring_Response/
+│   │   │   ├── Security_Logging/
+│   │   │   │   ├── SIEM_Integration.md
+│   │   │   │   └── Print_Job_Forensics.md
+│   │   │   ├── Threat_Detection/
+│   │   │   │   ├── Behavioral_Anomalies.md
+│   │   │   │   └── AI-Driven_Threat_Detection.md
+│   │   │   └── Incident_Response/
+│   │   │       ├── Breach_Containment_Plans.md
+│   │   │       └── Chain_of_Custody_Procedures.md
+│   │   │
+│   │   ├── 5_Physical_Security/
+│   │   │   ├── Access_Controls/
+│   │   │   │   ├── Biometric_Locks.md
+│   │   │   │   └── Mantrap_Integration.md
+│   │   │   ├── Tamper_Protection/
+│   │   │   │   ├── Seal_Verification_Protocols.md
+│   │   │   │   └── Self-Destruct_Mechanisms.md
+│   │   │   └── Environmental_Controls/
+│   │   │       ├── Faraday_Cage_Installation.md
+│   │   │       └── EMI_Shielding.md
+│   │   │
+│   │   └── Integration_Guidelines/
+│   │       ├── Compliance_Mapping/
+│   │       │   ├── NIST_800-171_Alignment.md
+│   │       │   └── ISO_27001_Crosswalk.md
+│   │       ├── Cloud_Security_Bridging/
+│   │       │   ├── Secure_Cloud_Print_Hybrids.md
+│   │       │   └── Azure_Security_Center_Integration.md
+│   │       └── Legacy_System_Protection/
+│   │           ├── End-of-Life_Device_Hardening.md
+│   │           └── Protocol_Wrapping_Strategies.md
+│
+├── Automation & Integration/
+│   ├── Scripting & APIs/
+│   │   ├── PowerShell for Print Server Management.md
+│   │   ├── Python Print Job Automation.md
+│   │   └── REST API Integration Templates.md
+│   ├── CI-CD Pipelines for Printer Configs/
+│   │   ├── Infrastructure-as-Code (Terraform-Ansible).md
+│   │   └── GitOps for Driver Versioning.md
+│   └── RPA for Print Workflows/
+│       ├── UiPath Print Task Automation.md
+│       └── Blue Prism Use Cases.md
+│
+├── User Training & Adoption/
+│   ├── End-User Guides/
+│   │   ├── Mobile Printing Tutorials.md
+│   │   └── Secure Print Release Workflows.md
+│   ├── Admin Certification Programs.md
+│   └── Change Management for Printer Migrations.md
+│
+├── Vendor & Partner Ecosystem/
+│   ├── Third-Party Integration Hub/
+│   │   ├── PaperCut MF Configuration.md
+│   │   ├── Pharos Uniprint Guide.md
+│   │   └── Kofax Integration Templates.md
+│   └── OEM Partnerships/
+│       ├── HP Managed Print Services.md
+│       └── Xerox ConnectKey Certification.md
+│
+└── Appendices/
+│   ├── Glossary of Print Technologies.md
+│   ├── Acronym Reference Guide.md
+│   └── Regulatory Checklists & Templates.md
+├── Azure Cloud Services/
+│   ├── Update Management/
+│   │   ├── Deployment Strategies/
+│   │   │   ├── Patch Orchestration Blueprint.md
+│   │   │   ├── Maintenance Window Configurations.md
+│   │   │   ├── Phased Rollout Frameworks/
+│   │   │   │   ├── Canary Deployment Templates.md
+│   │   │   │   └── Blue-Green Update Workflows.md
+│   │   │   ├── Compliance Baselines/
+│   │   │   │   ├── CIS Benchmark Alignment.md
+│   │   │   │   └── NIST 800-53 Integration Guide.md
+│   │   │   ├── Pre- and Post-Update Script Automation.md
+│   │   │   └── Infrastructure-as-Code (IaC) Templates/
+│   │   │       ├── ARM Templates for Patching.md
+│   │   │       └── Terraform Update Schedules.md
+│   │   ├── Troubleshooting Hub/
+│   │   │   ├── Connectivity Analyzer.md
+│   │   │   ├── Compliance Discrepancy Guide.md
+│   │   │   ├── Rollback Procedures/
+│   │   │   │   ├── Snapshot-Based Reversion.md
+│   │   │   │   └── Hotfix Rollback Automation.md
+│   │   │   ├── Agent Health Monitoring/
+│   │   │   │   ├── Log Analytics Workspace Queries.md
+│   │   │   │   └── Azure Automation Runbook Diagnostics.md
+│   │   │   ├── Update Failure Analysis/
+│   │   │   │   ├── Dependency Conflict Resolver.md
+│   │   │   │   ├── Timeout Optimization Guide.md
+│   │   │   │   └── Common Error Code Encyclopedia.md
+│   │   │   └── Network & Permissions/
+│   │   │       ├── NSG/Firewall Rule Validation.md
+│   │   │       └── RBAC Permissions Audit Guide.md
+│   │   ├── Reporting Suite/
+│   │   │   ├── Custom KQL Queries.md
+│   │   │   ├── Azure Monitor Alert Configurations.md
+│   │   │   ├── Power BI Integration Guide.md
+│   │   │   ├── Compliance Dashboards/
+│   │   │   │   ├── Real-Time Patch Compliance.md
+│   │   │   │   └── Historical Trend Analysis.md
+│   │   │   ├── Predictive Analytics/
+│   │   │   │   ├── Machine Learning for Patch Risk Scoring.md
+│   │   │   │   └── Anomaly Detection in Update Cycles.md
+│   │   │   └── Audit & Governance/
+│   │   │       ├── Change Tracking Integration.md
+│   │   │       └── SOX/GDPR Audit Trails.md
+├── Azure Cloud Services/
+│   ├── Functions Ecosystem/
+│   │   ├── Runtime Environments/
+│   │   │   ├── .NET Version Migration Kit.md
+│   │   │   ├── Node.js Version Compatibility.md
+│   │   │   ├── Python Version Support.md
+│   │   │   ├── Java Runtime Configuration.md
+│   │   │   ├── PowerShell Core Integration.md  
+│   │   │   ├── Custom Container Runtimes/
+│   │   │   │   ├── Dockerfile Optimization Guide.md
+│   │   │   │   └── AKS Hybrid Integration.md
+│   │   │   ├── Dependency Management/
+│   │   │   │   ├── NuGet Private Feed Setup.md
+│   │   │   │   ├── npm/yarn Proxy Configuration.md
+│   │   │   │   └── Python Virtualenv Isolation.md
+│   │   │   └── Version Rollback Strategies.md  
+│   │   ├── Deployment Pipeline/
+│   │   │   ├── CI/CD Configuration Templates.md
+│   │   │   ├── ARM Template Library.md
+│   │   │   ├── Infrastructure-as-Code (IaC)/
+│   │   │   │   ├── Terraform Modules for Functions.md
+│   │   │   │   └── Bicep Deployment Frameworks.md
+│   │   │   ├── Deployment Slot Management/
+│   │   │   │   ├── Blue-Green Deployment Playbook.md
+│   │   │   │   └── Traffic Shifting Automation.md
+│   │   │   ├── GitOps Workflows/
+│   │   │   │   ├── FluxCD Integration Guide.md
+│   │   │   │   └── ArgoCD for Serverless.md
+│   │   │   ├── Testing Strategies/
+│   │   │   │   ├── Chaos Engineering for Functions.md
+│   │   │   │   ├── Integration Testing Frameworks.md
+│   │   │   │   └── Load Testing with Locust.md
+│   │   │   └── Artifact Registries/
+│   │   │       ├── Azure Container Registry (ACR).md
+│   │   │       └── GitHub Packages Integration.md
+│   │   ├── Performance Suite/
+│   │   │   ├── Cold Start Mitigation Strategies/
+│   │   │   │   ├── Premium Plan Tuning.md
+│   │   │   │   └── Pre-Warming Scripts.md
+│   │   │   ├── Concurrency Control Mechanisms/
+│   │   │   │   ├── Throttling Policies.md
+│   │   │   │   └── Queue-Based Backpressure.md
+│   │   │   ├── Scaling Rule Optimization/
+│   │   │   │   ├── Custom Metrics Scaling.md
+│   │   │   │   └── Event-Driven Autoscaling.md
+│   │   │   ├── Memory/CPU Profiling/
+│   │   │   │   ├── Application Insights Profiler.md
+│   │   │   │   └── Azure Monitor Code Analysis.md
+│   │   │   ├── Distributed Tracing/
+│   │   │   │   ├── OpenTelemetry Setup.md
+│   │   │   │   └── W3C Trace Context Guide.md
+│   │   │   └── Cost-Performance Tradeoff Analysis.md
+│   │   ├── Security Center/
+│   │   │   ├── Managed Identity Integration/
+│   │   │   │   ├── Cross-Tenant Access Policies.md
+│   │   │   │   └── Service Principal Rotation.md
+│   │   │   ├── Key Vault Reference Guide/
+│   │   │   │   ├── Auto-Rotation of Secrets.md
+│   │   │   │   └── RBAC for Secret Access.md
+│   │   │   ├── Network Security Configuration/
+│   │   │   │   ├── Private Endpoint Setup.md
+│   │   │   │   └── NSG for Function Subnets.md
+│   │   │   ├── Authentication & Authorization/
+│   │   │   │   ├── OAuth2.0 with Entra ID.md
+│   │   │   │   └── Custom JWT Validation.md
+│   │   │   ├── Threat Detection/
+│   │   │   │   ├── Azure Defender for Serverless.md
+│   │   │   │   └── Anomalous Execution Alerts.md
+│   │   │   └── Compliance Guardrails/
+│   │   │       ├── SOC2/ISO27001 Configuration.md
+│   │   │       └── GDPR Data Residency Controls.md
+│   │   ├── Observability & Monitoring/
+│   │   │   ├── Logging Strategies/
+│   │   │   │   ├── Structured Logging with Serilog.md
+│   │   │   │   └── Cost-Effective Log Retention.md
+│   │   │   ├── Alerting Frameworks/
+│   │   │   │   ├── Dynamic Threshold Alerts.md
+│   │   │   │   └── Slack/Teams Integration.md
+│   │   │   ├── Custom Metrics Export/
+│   │   │   │   ├── Prometheus Scraping.md
+│   │   │   │   └── Grafana Dashboard Templates.md
+│   │   │   └── Live Debugging Tools/
+│   │   │       ├── Azure Functions Core Tools.md
+│   │   │       └── Remote Profiling Guide.md
+│   │   ├── Advanced Use Cases/
+│   │   │   ├── Event-Driven Architectures/
+│   │   │   │   ├── Kafka Integration Patterns.md
+│   │   │   │   └── Event Grid Schema Design.md
+│   │   │   ├── Stateful Serverless/
+│   │   │   │   ├── Durable Functions Orchestration.md
+│   │   │   │   └── Redis Cache Integration.md
+│   │   │   ├── IoT Edge Functions/
+│   │   │   │   ├── Azure IoT Hub Bindings.md
+│   │   │   │   └── Offline-First Execution.md
+│   │   │   └── ML Inference Pipelines/
+│   │   │       ├── ONNX Runtime Integration.md
+│   │   │       └── Batch Scoring Strategies.md
+│   │   ├── Hybrid & Multi-Cloud/
+│   │   │   ├── Azure Arc-Enabled Functions.md
+│   │   │   ├── AWS Lambda Migration Toolkit.md
+│   │   │   └── On-Premises Kubernetes Deployment.md
+│   │   └── Disaster Recovery/
+│   │       ├── Geo-Replication Strategies.md
+│   │       ├── Backup/Restore Workflows.md
+│   │       └── Function App Failover Testing.md
+├── Storage Architecture/
+│   ├── Authentication Matrix/
+│   │   ├── SAS Token Generator.md
+│   │   ├── RBAC Configuration Guide.md
+│   │   ├── Azure AD Authentication for Storage.md
+│   │   ├── OAuth 2.0 Scopes for Storage APIs.md  
+│   │   ├── Managed Identity Integration.md  
+│   │   ├── Cross-Tenant Access Policies.md  
+│   │   ├── Certificate-Based Authentication.md  
+│   │   └── Authentication Logging & Auditing.md  
+│   ├── Performance Toolkit/
+│   │   ├── Blob Tier Optimization/
+│   │   │   ├── Hot/Cold/Archive Lifecycle Rules.md  
+│   │   │   └── Cost-Performance Tradeoff Analysis.md  
+│   │   ├── File Share Benchmarking/
+│   │   │   ├── Premium File Shares vs Standard.md  
+│   │   │   └── SMB/NFS Protocol Tuning.md  
+│   │   ├── Queue Latency Analysis/
+│   │   │   ├── Message Batching Strategies.md  
+│   │   │   └── Dead-Letter Queue Optimization.md  
+│   │   ├── Table Storage Partitioning Strategies.md  
+│   │   ├── Geo-Replication Performance Guide.md  
+│   │   ├── CDN Integration for Blob Acceleration.md  
+│   │   └── Advanced Metrics & Diagnostics/  
+│   │       ├── Azure Monitor for Storage.md  
+│   │       └── Log Analytics KQL Queries.md  
+│   ├── Data Protection/
+│   │   ├── Soft Delete Configuration/
+│   │   │   ├── Blob/File/Container Soft Delete.md  
+│   │   │   └── Versioning & Point-in-Time Restore.md  
+│   │   ├── Immutability Policies/
+│   │   │   ├── Legal Hold Workflows.md  
+│   │   │   └── Time-Based Retention Locks.md  
+│   │   ├── Backup and Restore Procedures/
+│   │   │   ├── Multi-Region Backup Strategies.md  
+│   │   │   └── Ransomware Recovery Playbook.md  
+│   │   ├── Encryption Management/  
+│   │   │   ├── Customer-Managed Keys (CMK).md  
+│   │   │   ├── Double Encryption at Rest.md  
+│   │   │   └── TLS 1.3 for Data in Transit.md  
+│   │   └── Compliance & Governance/  
+│   │       ├── GDPR Data Subject Requests.md  
+│   │       └── HIPAA Audit Trail Configuration.md  
+│   ├── Lifecycle Management/  
+│   │   ├── Automated Tiering Policies.md  
+│   │   ├── Data Expiration Workflows.md  
+│   │   ├── Object Replication Rules/  
+│   │   │   ├── Cross-Region Replication.md  
+│   │   │   └── Cross-Tenant Replication.md  
+│   │   └── Cost-Optimized Retention Schedules.md  
+│   ├── Security & Compliance/  
+│   │   ├── Threat Detection/  
+│   │   │   ├── Azure Defender for Storage.md  
+│   │   │   └── Anomalous Access Pattern Alerts.md  
+│   │   ├── Network Security/  
+│   │   │   ├── Private Endpoint & DNS Zones.md  
+│   │   │   ├── Firewall & IP Allowlisting.md  
+│   │   │   └── VNet Service Endpoints.md  
+│   │   ├── Access Reviews & Cleanup.md  
+│   │   └── Compliance Reporting/  
+│   │       ├── SOC2 Audit Templates.md  
+│   │       └── ISO 27001 Configuration.md  
+│   ├── Hybrid & Multi-Cloud/  
+│   │   ├── Azure Stack Edge Integration.md  
+│   │   ├── AWS S3 Compatibility Layer.md  
+│   │   ├── Google Cloud Interconnect Guide.md  
+│   │   └── On-Premises Sync Strategies/  
+│   │       ├── Azure File Sync Configuration.md  
+│   │       └── Robocopy Automation Scripts.md  
+│   ├── Advanced Scenarios/  
+│   │   ├── Big Data Storage/  
+│   │   │   ├── Hadoop/Spark Integration.md  
+│   │   │   └── Parquet/ORC Format Optimization.md  
+│   │   ├── AI/ML Data Lakes/  
+│   │   │   ├── Databricks Delta Lake Setup.md  
+│   │   │   └── Training Data Versioning.md  
+│   │   ├── High-Frequency Transaction Logging.md  
+│   │   └── IoT Time-Series Data Archiving.md  
+│   ├── Disaster Recovery/  
+│   │   ├── Geo-Redundant Failover Testing.md  
+│   │   ├── Read-Access Geo-Replication (RA-GRS).md  
+│   │   └── Storage Account Failover Automation.md  
+│   └── Migration & Modernization/  
+│       ├── Legacy NAS Migration Toolkit.md  
+│       ├── AWS S3 to Azure Blob Migration.md  
+│       ├── GCP Bucket Migration Guide.md  
+│       └── Tape-to-Cloud Archiving Strategies.md  
+├── Virtual Machine Core/
+│   ├── Boot Diagnostics/
+│   │   ├── Serial Console Access Guide.md
+│   │   ├── Boot Error Code Reference.md
+│   │   ├── Screenshot Capture Analysis.md
+│   │   ├── Automated Recovery Scripts/
+│   │   │   ├── GRUB Repair Automation.md
+│   │   │   └── BCD Rebuild Scripts.md
+│   │   ├── Integration with Azure Monitor.md
+│   │   └── UEFI vs BIOS Boot Analysis.md
+│   ├── Network Fabric/
+│   │   ├── NSG Troubleshooting Toolkit.md
+│   │   ├── Load Balancer Configuration/
+│   │   │   ├── Health Probe Customization.md
+│   │   │   └── HA Ports for Critical Workloads.md
+│   │   ├── ExpressRoute Monitoring Guide.md
+│   │   ├── Accelerated Networking Tuning.md
+│   │   ├── IPv6 Configuration Guide.md
+│   │   ├── Traffic Analytics with Azure Monitor.md
+│   │   └── Network Virtual Appliances (NVA)/
+│   │       ├── Fortigate Deployment Templates.md
+│   │       └── Check Point Traffic Inspection.md
+│   └── Guest OS Management/
+│       ├── Extension Troubleshooting/
+│       │   ├── Dependency Failure Analysis.md
+│       │   └── Custom Script Extension Debugging.md
+│       ├── Performance Baseline Configurations/
+│       │   ├── Disk I/O Optimization.md
+│       │   ├── Memory Ballooning Mitigation.md
+│       │   └── NUMA Alignment Strategies.md
+│       ├── Patch Management within VMs/
+│       │   ├── Offline Patching Workflows.md
+│       │   └── Update Compliance Reporting.md
+│       ├── Automation Toolkits/
+│       │   ├── Ansible Playbook Library.md
+│       │   ├── PowerShell DSC Configurations.md
+│       │   └── Terraform VM Modules.md
+│       ├── Security Hardening/
+│       │   ├── CIS Benchmark Compliance.md
+│       │   ├── SELinux/AppArmor Policies.md
+│       │   └── Credential Guard Activation.md
+│       ├── Backup Strategies/
+│       │   ├── Application-Consistent Snapshots.md
+│       │   └── File-Level Restore Procedures.md
+│       ├── Licensing & Compliance/
+│       │   ├── BYOL Validation Guide.md
+│       │   └── Azure Hybrid Benefit Optimization.md
+│       └── Cross-Platform Management/
+│           ├── Linux Systemd Unit Tuning.md
+│           └── Windows Registry Best Practices.md
+│   ├── Disaster Recovery/
+│   │   ├── VM Failover Testing Playbook.md
+│   │   ├── Site Recovery Plan Customization.md
+│   │   └── Cross-Region Replication Costs.md
+│   ├── Cost Optimization/
+│   │   ├── Reserved Instance Planning.md
+│   │   ├── Spot VM Usage Guidelines.md
+│   │   └── Right-Sizing Analysis Tools.md
+│   ├── Specialized Workloads/
+│   │   ├── GPU-Accelerated VMs/
+│   │   │   ├── CUDA Driver Configuration.md
+│   │   │   └── NVIDIA GRID Licensing.md
+│   │   ├── SAP-Certified Configurations.md
+│   │   ├── High-Performance Compute (HPC)/
+│   │   │   ├── MPI Cluster Setup.md
+│   │   │   └── InfiniBand Tuning.md
+│   │   └── Confidential Computing/
+│   │       ├── SGX Enclave Configuration.md
+│   │       └── VM TEE (Trusted Execution) Setup.md
+│   ├── Hybrid Scenarios/
+│   │   ├── Azure Arc-Enabled Servers.md
+│   │   ├── On-Premises VM Sync Strategies.md
+│   │   └── Multi-Cloud VM Image Portability.md
+│   ├── Security & Compliance/
+│   │   ├── Threat Detection/
+│   │   │   ├── Azure Defender for VMs.md
+│   │   │   └── File Integrity Monitoring.md
+│   │   ├── Disk Encryption/
+│   │   │   ├── Azure Disk Encryption (ADE).md
+│   │   │   └── Host-Based Encryption.md
+│   │   ├── Compliance Reporting/
+│   │   │   ├── NIST 800-53 Configuration.md
+│   │   │   └── PCI-DSS Hardening Guide.md
+│   │   └── JIT Access Configuration.md
+│   └── Migration & Modernization/
+│       ├── Physical-to-Azure (P2A) Guide.md
+│       ├── VMware/Hyper-V Migration Toolkit.md
+│       ├── Generation 2 VM Conversion.md
+│       └── Legacy OS Modernization Frameworks.md
+├── Identity Infrastructure/
+│   ├── Active Directory Core/
+│   │   ├── Domain Services/
+│   │   │   ├── Replication Health Monitor.md
+│   │   │   ├── FSMO Role Management.md
+│   │   │   ├── Domain Controller Backup and Recovery.md
+│   │   │   ├── AD Site and Subnet Optimization.md
+│   │   │   ├── Tombstone Reanimation Procedures.md
+│   │   │   ├── Disaster Recovery Playbook.md
+│   │   │   └── AD Database (NTDS) Maintenance.md
+│   │   ├── Group Policy Engine/
+│   │   │   ├── GPO Modeling Wizard.md
+│   │   │   ├── Preference Item Troubleshooting.md
+│   │   │   ├── Security Filtering Best Practices.md
+│   │   │   ├── GPO Version Control Strategies.md
+│   │   │   ├── Central Store Configuration.md
+│   │   │   ├── ADMX Template Management.md
+│   │   │   ├── Policy Analytics with Advanced Tools.md
+│   │   │   └── Intune Co-Management Guide.md
+│   │   └── Authentication Stack/
+│   │       ├── Kerberos Constrained Delegation.md
+│   │       ├── NTLM Fallback Analysis.md
+│   │       ├── Certificate Services Management.md
+│   │       ├── OAuth2 and SAML Integration.md
+│   │       ├── Azure AD Connect Health Monitoring.md
+│   │       ├── Smart Card Authentication Setup.md
+│   │       ├── Certificate Auto-Enrollment.md
+│   │       └── Pass-the-Hash Mitigation Guide.md
+│   ├── Azure AD Hybrid/
+│   │   ├── Sync Health Monitoring/
+│   │   │   ├── AAD Connect Troubleshooting Toolkit.md
+│   │   │   └── Object Matching Rules Customization.md
+│   │   ├── Group Writeback Configuration.md
+│   │   ├── Hybrid Join Scenarios/
+│   │   │   ├── Azure AD Joined vs Hybrid Joined.md
+│   │   │   └── Device Registration Issues.md
+│   │   ├── Seamless SSO Deployment.md
+│   │   └── PHS vs PTA vs Federation Deep Dive.md
+│   ├── Security & Compliance/
+│   │   ├── Privileged Access Management/
+│   │   │   ├── PIM for AD Roles.md
+│   │   │   └── JIT Access Configuration.md
+│   │   ├── Conditional Access Policies/
+│   │   │   ├── Location-Based Restrictions.md
+│   │   │   └── Device Compliance Integration.md
+│   │   ├── Audit & Logging/
+│   │   │   ├── Sentinel SIEM Integration.md
+│   │   │   └── Custom Audit Policy Templates.md
+│   │   ├── Credential Guard/
+│   │   │   ├── Deployment in Legacy Environments.md
+│   │   │   └── Monitoring for Bypass Attempts.md
+│   │   └── Compliance Frameworks/
+│   │       ├── NIST 800-63B Alignment.md
+│   │       └── GDPR Right-to-Erasure Workflows.md
+│   ├── Automation & DevOps/
+│   │   ├── PowerShell Modules/
+│   │   │   ├── AD Module Script Library.md
+│   │   │   └── Microsoft Graph API Examples.md
+│   │   ├── Infrastructure-as-Code (IaC)/
+│   │   │   ├── Terraform AD DS Templates.md
+│   │   │   └── Bicep for Azure AD.md
+│   │   ├── CI/CD Pipelines/
+│   │   │   ├── GPO Deployment Automation.md
+│   │   │   └── Azure AD App Registration Pipelines.md
+│   │   └── Monitoring as Code/
+│   │       ├── KQL Query Library for AD.md
+│   │       └── Alert Rule Templates.md
+│   ├── Advanced Scenarios/
+│   │   ├── PKI Integration/
+│   │   │   ├── Offline Root CA Deployment.md
+│   │   │   └── Certificate Revocation Best Practices.md
+│   │   ├── Cross-Forest Trusts/
+│   │   │   ├── SID Filtering Configuration.md
+│   │   │   └── Selective Authentication.md
+│   │   ├── AD in Multi-Cloud/
+│   │   │   ├── AWS Managed AD Integration.md
+│   │   │   └── GCP Directory Sync Strategies.md
+│   │   ├── Legacy Protocol Retirement/
+│   │   │   ├── LDAPS Migration to Secure LDAP.md
+│   │   │   └── Disabling NTLMv1.md
+│   │   └── AD for Containers/
+│   │       ├── gMSA Configuration for Kubernetes.md
+│   │       └── AKS Azure AD Integration.md
+│   └── Migration & Modernization/
+│       ├── ADMT (Active Directory Migration Tool)/
+│       │   ├── SID History Migration Guide.md
+│       │   └── Group Migration Strategies.md
+│       ├── Domain Consolidation/
+│       │   ├── Forest Restructure Playbook.md
+│       │   └── Empty Root Domain Decommission.md
+│       ├── Cloud-Only Identity Strategies.md
+│       └── Legacy System Phase-Out/
+│           ├── NT4 Domain Retirement.md
+│           └── Exchange Hybrid Mode Exit.md
+├── EntraID (Azure AD)/
+│   ├── Connect Synchronization/
+│   │   ├── Custom Sync Rules Development.md
+│   │   ├── Staging Server Deployment Guide.md
+│   │   ├── Health Monitoring and Alerts.md
+│   │   ├── Object Matching & Transformation/
+│   │   │   ├── Join Rules Optimization.md
+│   │   │   └── Attribute Flow Precedence.md
+│   │   ├── Hybrid Identity Scenarios/
+│   │   │   ├── HR-Driven Provisioning (Workday/SAP).md
+│   │   │   └── Third-Party Directory Sync.md
+│   │   ├── Disaster Recovery/
+│   │   │   ├── Sync Server Backup.md
+│   │   │   └── Metadata Cleanup After Failure.md
+│   │   └── Troubleshooting Toolkit/
+│   │       ├── DirSync Error Code Encyclopedia.md
+│   │       └── Performance Counters for Sync.md
+│   ├── Authentication Flows/
+│   │   ├── Conditional Access Playbook/
+│   │   │   ├── Location-Based Policies.md
+│   │   │   ├── Device Compliance Integration.md
+│   │   │   └── Risk-Based Conditional Access.md
+│   │   ├── B2B Collaboration Framework/
+│   │   │   ├── Cross-Tenant Access Policies.md
+│   │   │   ├── Guest User Lifecycle Management.md
+│   │   │   └── External Identity Reporting.md
+│   │   ├── Multi-Factor Authentication Deployment/
+│   │   │   ├── Phishing-Resistant MFA (FIDO2).md
+│   │   │   ├── Temporary Access Pass Workflows.md
+│   │   │   └── Fallback Methods for Legacy Systems.md
+│   │   ├── OAuth2/OIDC Flow Configuration/
+│   │   │   ├── Implicit vs On-Behalf-Of Flows.md
+│   │   │   └── Scope & Consent Management.md
+│   │   ├── Passwordless Authentication/
+│   │   │   ├── Microsoft Authenticator Setup.md
+│   │   │   └── Windows Hello for Business.md
+│   │   ├── Session Management/
+│   │   │   ├── Token Lifetime Policies.md
+│   │   │   └── Sign-In Frequency Controls.md
+│   │   └── B2C Custom Policies/
+│   │       ├── Identity Provider Federation.md
+│   │       └── User Journey Customization.md
+│   ├── Identity Protection/
+│   │   ├── Risk Detection Patterns/
+│   │   │   ├── Impossible Travel Alerts.md
+│   │   │   └── Leaked Credential Scanning.md
+│   │   ├── PIM Activation Protocols/
+│   │   │   ├── Time-Bound Role Assignments.md
+│   │   │   └── Approval Workflow Design.md
+│   │   ├── Identity Governance Features/
+│   │   │   ├── Access Certification Campaigns.md
+│   │   │   └── Entitlement Management.md
+│   │   ├── Threat Hunting/
+│   │   │   ├── User Risk Scoring Models.md
+│   │   │   └── Custom Detection Rules (KQL).md
+│   │   ├── Automated Remediation/
+│   │   │   ├── Risk-Based User Blocking.md
+│   │   │   └── Self-Service Password Reset.md
+│   │   └── Role Management/
+│   │       ├── Custom Role Development.md
+│   │       └── Privileged Access Groups.md
+│   ├── Monitoring & Reporting/
+│   │   ├── Sign-In Log Analytics.md
+│   │   ├── Audit Log Retention Policies.md
+│   │   ├── Power BI Integration Templates.md
+│   │   └── Anomaly Detection with Sentinel.md
+│   ├── Hybrid & Multi-Cloud/
+│   │   ├── Azure AD DS Integration/
+│   │   │   ├── Forest Trust Configuration.md
+│   │   │   └── Secure LDAP Setup.md
+│   │   ├── AWS SSO Federation.md
+│   │   ├── GCP Identity Federation.md
+│   │   └── On-Premises App Proxy.md
+│   ├── Security & Compliance/
+│   │   ├── Zero Trust Architecture/
+│   │   │   ├── Device Health Attestation.md
+│   │   │   └── Continuous Access Evaluation.md
+│   │   ├── Compliance Frameworks/
+│   │   │   ├── NIST 800-207 Alignment.md
+│   │   │   └── FedRAMP Moderate Controls.md
+│   │   ├── Threat Intelligence Feeds/
+│   │   │   ├── Microsoft Defender Integration.md
+│   │   │   └── Custom Indicator Upload.md
+│   │   └── Data Residency Controls.md
+│   ├── Automation & DevOps/
+│   │   ├── Infrastructure-as-Code (IaC)/
+│   │   │   ├── Terraform EntraID Modules.md
+│   │   │   └── Bicep for Conditional Access.md
+│   │   ├── CI/CD Pipelines/
+│   │   │   ├── App Registration Automation.md
+│   │   │   └── Policy Deployment Pipelines.md
+│   │   ├── Scripting Libraries/
+│   │   │   ├── Microsoft Graph PowerShell.md
+│   │   │   └── Python SDK Examples.md
+│   │   └── Monitoring as Code/
+│   │       ├── KQL Query Templates.md
+│   │       └── Alert Rule Export/Import.md
+│   └── Advanced Scenarios/
+│       ├── IoT Identity Management/
+│       │   ├── Device Registration Limits.md
+│       │   └── Certificate-Based Auth for IoT.md
+│       ├── Serverless Identity/
+│       │   ├── Managed Identity for Functions.md
+│       │   └── Key Vault Integration.md
+│       ├── DevOps Integration/
+│       │   ├── Service Principal Rotation.md
+│       │   └── GitHub Actions OIDC Federation.md
+│       └── Legacy App Modernization/
+│           ├── SAML-to-OIDC Migration.md
+│           └── AD FS Retirement Guide.md
+│   ├── Microsoft Graph API Development/  
+│   │   ├── C# SDK Integration/  
+│   │   │   ├── Authentication Scenarios/  
+│   │   │   │   ├── App-Only vs Delegated Access.md  
+│   │   │   │   └── Certificate-Based Auth.md  
+│   │   │   ├── Code Examples/  
+│   │   │   │   ├── User Provisioning Workflows.md  
+│   │   │   │   ├── Group Management Automation.md  
+│   │   │   │   └── Conditional Access Policy CRUD.md  
+│   │   │   └── Best Practices/  
+│   │   │       ├── Throttling Handling.md  
+│   │   │       └── Batch Request Patterns.md  
+│   │   ├── SDK & Tooling/  
+│   │   │   ├── Microsoft.Graph NuGet Guide.md  
+│   │   │   ├── Graph Explorer Advanced Use Cases.md  
+│   │   │   └── Testing with Mock APIs.md  
+│   │   ├── Data Models & Queries/  
+│   │   │   ├── Query Optimization with OData.md  
+│   │   │   └── Delta Query Patterns.md  
+│   │   └── Security & Governance/  
+│   │       ├── Least Privilege Permissions.md  
+│   │       └── Audit Logging for Graph Calls.md  
+│   ├── Automation & DevOps/  
+│   │   └── Scripting Libraries/  
+│   │       ├── PowerShell SDK Examples.md  
+│   │       ├── Python SDK Examples.md  
+│   │       └── C# SDK Examples.md (links to the dedicated C# SDK Integration section) 
+├── Productivity Suite/
+│   ├── SharePoint Foundation/
+│   │   ├── Content Architecture/
+│   │   │   ├── Metadata Navigation Guide.md
+│   │   │   ├── Versioning Strategies.md
+│   │   │   └── Content Type Management.md
+│   │   ├── Search Infrastructure/
+│   │   │   ├── Schema Management Console.md
+│   │   │   ├── Result Source Configuration.md
+│   │   │   └── Query Rule Optimization.md
+│   │   └── Workflow Engine/
+│   │       ├── Power Automate Integration.md
+│   │       ├── Legacy Workflow Migration.md
+│   │       └── SharePoint Designer Troubleshooting.md
+│   ├── Teams Platform/
+│   │   ├── Meeting Infrastructure/
+│   │   │   ├── QoS Configuration Templates.md
+│   │   │   ├── Live Event Production Guide.md
+│   │   │   ├── Meeting Policy Management.md
+│   │   │   ├── Network Optimization Strategies.md
+│   │   │   ├── Recording & Transcription Configuration.md
+│   │   │   ├── Third-Party App Integration for Meetings.md
+│   │   │   ├── Meeting Security Best Practices.md
+│   │   │   ├── Troubleshooting Common Meeting Issues.md
+│   │   │   ├── Meeting Analytics & Reporting.md
+│   │   │   ├── Device Management & Compatibility Guidelines.md
+│   │   │   ├── Hybrid Meeting Setup & Management.md
+│   │   │   ├── PowerShell Scripts for Meeting Automation.md
+│   │   │   └── Compliance & Legal Considerations.md
+│   │   ├── Governance Framework/
+│   │   │   ├── Guest Access Policies.md
+│   │   │   ├── Retention Label Strategies.md
+│   │   │   ├── Information Barrier Configuration.md
+│   │   │   ├── Lifecycle Management Policies.md
+│   │   │   ├── Data Loss Prevention (DLP) Configuration.md
+│   │   │   ├── Compliance Reporting & Audits.md
+│   │   │   ├── Role-Based Access Controls (RBAC).md
+│   │   │   ├── Sensitivity Label Enforcement.md
+│   │   │   ├── Audit Logging & Activity Monitoring.md
+│   │   │   ├── External Sharing Governance.md
+│   │   │   ├── Cross-Tenant Collaboration Policies.md
+│   │   │   ├── Legal Hold & eDiscovery Setup.md
+│   │   │   ├── User Provisioning & Deprovisioning.md
+│   │   │   ├── Terms of Use & Consent Management.md
+│   │   │   └── Backup & Disaster Recovery Plans.md
+│   │   └── Development Kit/
+│   │       ├── Teams JS SDK Integration.md
+│   │       ├── Bot Framework Deployment.md
+│   │       ├── Tab Development Guidelines.md
+│   │       ├── Advanced Teams JS SDK Features.md
+│   │       ├── Real-time ACS Data in Teams.md
+│   │       ├── Teams JS SDK Performance Optimization.md
+│   │       ├── Teams JS SDK Testing and Debugging.md
+│   │       ├── ACS Printer Management Bots.md
+│   │       ├── Adaptive Cards for ACS Bots.md
+│   │       ├── Advanced Bot UI Design.md
+│   │       ├── Bot Security and Authentication.md
+│   │       ├── Proactive Messaging in ACS Bots.md
+│   │       ├── Advanced Tab Features.md
+│   │       ├── ACS Tab UI-UX Best Practices.md
+│   │       ├── Accessibility in ACS Tabs.md
+│   │       ├── Data Visualization in ACS Tabs.md
+│   │       ├── Tab Configuration and Deployment.md
+│   │       ├── Examples/
+│   │       │   ├── PrinterStatusBot/
+│   │       │   ├── PrinterManagementTab/
+│   │       │   └── RealtimeDataTab/
+│   │       ├── Libraries/
+│   │       │   ├── ACS-Teams-Utils.js
+│   │       │   └── ACS-Bot-Helpers.js
+│   │       └── Tools/
+├── Outlook Ecosystem/
+│   ├── Connectivity Suite/
+│   │   ├── Autodiscover Troubleshooting/
+│   │   │   ├── DNS SRV Record Validation.md
+│   │   │   ├── Registry Key Analysis.md
+│   │   │   └── Client Log Parsing Guide.md
+│   │   ├── MAPI Over HTTP Configuration/
+│   │   │   ├── Protocol Version Control.md
+│   │   │   └── Proxy Server Compatibility.md
+│   │   ├── Exchange Online Connectivity Tests/
+│   │   │   ├── Microsoft Remote Connectivity Analyzer.md
+│   │   │   └── PowerShell Test Cmdlets.md
+│   │   ├── Legacy Protocol Support/
+│   │   │   ├── RPC/HTTP Deprecation Guide.md
+│   │   │   └── EWS (Exchange Web Services) Migration.md
+│   │   ├── Network Diagnostics/
+│   │   │   ├── Fiddler Trace Analysis.md
+│   │   │   └── Wireshark Packet Capture Guide.md
+│   │   └── Client Configuration/
+│   │       ├── GPO-Based Outlook Profiles.md
+│   │       ├── Office Customization Tool (OCT).md
+│   │       └── Registry-Based Tuning.md
+│   ├── Data Management/
+│   │   ├── OST File Repair Toolkit/
+│   │   │   ├── ScanPST/ScanOST Usage.md
+│   │   │   └── Corruption Prevention Strategies.md
+│   │   ├── Archive Migration Strategies/
+│   │   │   ├── PST to Cloud Archive.md
+│   │   │   └── Third-Party Tool Evaluation.md
+│   │   ├── Retention Policy Configuration/
+│   │   │   ├── Tag-Based Retention.md
+│   │   │   └── Legal Hold vs In-Place Hold.md
+│   │   ├── Mailbox Quota Management/
+│   │   │   ├── Auto-Expanding Archives.md
+│   │   │   └── User Notification Workflows.md
+│   │   ├── Bulk Operations/
+│   │   │   ├── Mailbox Export/Import via PowerShell.md
+│   │   │   └── EDiscovery Case Management.md
+│   │   └── Compliance Features/
+│   │       ├── Message Encryption (OME).md
+│   │       └── Data Loss Prevention (DLP) for Outlook.md
+│   ├── Mobile Integration/
+│   │   ├── ActiveSync Protocol Guide/
+│   │   │   ├── Device Partnership Limits.md
+│   │   │   └── Protocol Logging.md
+│   │   ├── Modern Authentication Setup/
+│   │   │   ├── Hybrid Modern Auth (HMA).md
+│   │   │   └── ADAL vs MSAL Migration.md
+│   │   ├── Mobile Device Management Policies/
+│   │   │   ├── Conditional Access for Mobile.md
+│   │   │   └── Wipe/Retire Procedures.md
+│   │   ├── Client Configuration/
+│   │   │   ├── Outlook for iOS/Android Setup.md
+│   │   │   └── Third-Party Client Support.md
+│   │   ├── Certificate-Based Authentication.md
+│   │   └── Troubleshooting Mobile Sync/
+│   │       ├── Sync Loop Detection.md
+│   │       └── Calendar Conflict Resolution.md
+│   ├── Security & Compliance/
+│   │   ├── Encryption Management/
+│   │   │   ├── S/MIME Configuration.md
+│   │   │   └── IRM (Information Rights Management).md
+│   │   ├── Phishing Protection/
+│   │   │   ├── Safe Links Policy Enforcement.md
+│   │   │   └── External Sender Warnings.md
+│   │   ├── Add-In Governance/
+│   │   │   ├── Blocking Risky Add-Ins.md
+│   │   │   └── Admin-Approved Add-In Store.md
+│   │   └── Audit & Monitoring/
+│   │       ├── Mailbox Auditing Logs.md
+│   │       └── Sentinel Integration Guide.md
+│   ├── Automation & Scripting/
+│   │   ├── PowerShell Modules/
+│   │   │   ├── Exchange Online Cmdlets.md
+│   │   │   └── Outlook Object Model (OOM).md
+│   │   ├── Graph API Integration/
+│   │   │   ├── Calendar API Automation.md
+│   │   │   └── Mail REST Endpoints.md
+│   │   ├── Macro Security/
+│   │   │   ├── VBA Signing Best Practices.md
+│   │   │   └── Blocking Malicious Macros.md
+│   │   └── Intune Scripts/
+│   │       ├── Outlook Profile Deployment.md
+│   │       └── Configuration Policy Templates.md
+│   ├── Advanced Scenarios/
+│   │   ├── Hybrid Deployments/
+│   │   │   ├── Coexistence Mode (Ex2016/ExO).md
+│   │   │   └── Public Folder Sync.md
+│   │   ├── Third-Party Integrations/
+│   │   │   ├── CRM Sync (Salesforce/Dynamics).md
+│   │   │   └── Add-In Development Kit.md
+│   │   ├── Outlook Web Add-Ins/
+│   │   │   ├── SSO Configuration.md
+│   │   │   └── Deployment via Centralized Store.md
+│   │   └── Accessibility Features/
+│   │       ├── Screen Reader Optimization.md
+│   │       └── High Contrast Mode Tuning.md
+│   └── User Support/
+│       ├── Training Materials/
+│       │   ├── Shared Mailbox Usage Guide.md
+│       │   └── Calendar Delegation Tutorial.md
+│       ├── Self-Service Portals/
+│       │   ├── Password Reset Integration.md
+│       │   └── OST Rebuild Automation.md
+│       └── Common Issues/
+│           ├── Search Index Rebuild.md
+│           └── Profile Corruption Recovery.md
+├── Endpoint Universe/
+│   ├── Windows 10 Core/
+│   │   ├── Update Architecture/
+│   │   │   ├── WSUS Integration Guide.md
+│   │   │   ├── Feature Update Rollback.md
+│   │   │   ├── Delivery Optimization Configuration.md
+│   │   │   ├── Windows Update for Business (WUfB)/
+│   │   │   │   ├── Ring-Based Deployment.md
+│   │   │   │   └── Pause/Resume Workflows.md
+│   │   │   ├── Update Troubleshooting/
+│   │   │   │   ├── Component Store Corruption.md
+│   │   │   │   └── DISM/SFC Repair Guide.md
+│   │   │   └── Third-Patch Management/
+│   │   │       ├── SCAP Compliance Updates.md
+│   │   │       └── Non-Microsoft Driver Updates.md
+│   │   ├── Hardware Compatibility/
+│   │   │   ├── Driver Store Management.md
+│   │   │   ├── Secure Boot Configuration.md
+│   │   │   ├── BitLocker Drive Encryption.md
+│   │   │   ├── Firmware Update Strategies/
+│   │   │   │   ├── UEFI Capsule Updates.md
+│   │   │   │   └── Vendor-Specific Tools.md
+│   │   │   ├── Legacy Hardware Support/
+│   │   │   │   ├── Compatibility Mode Tuning.md
+│   │   │   │   └── Driver Compatibility Shims.md
+│   │   │   └── TPM Management/
+│   │   │       ├── TPM 2.0 Health Checks.md
+│   │   │       └── Clear-TPM Recovery.md
+│   │   └── Diagnostic Tools/
+│   │       ├── Reliability Monitor Guide.md
+│   │       ├── Memory Diagnostic Procedures.md
+│   │       ├── Performance Monitor Configuration.md
+│   │       ├── Advanced Debugging/
+│   │       │   ├── WinDbg Crash Analysis.md
+│   │       │   └── Event Log Filtering.md
+│   │       └── Boot Logging/
+│   │           ├── Bootrec.exe Usage.md
+│   │           └── BCDEdit Scenarios.md
+│   ├── Windows 11 Transition/
+│   │   ├── Compatibility Center/
+│   │   │   ├── TPM Requirements Analysis.md
+│   │   │   ├── Legacy App Support Guide.md
+│   │   │   ├── Hardware Readiness Assessment.md
+│   │   │   ├── UEFI Firmware Requirements.md
+│   │   │   ├── Virtualization-Based Compatibility/
+│   │   │   │   ├── Windows Sandbox for Legacy Apps.md
+│   │   │   │   └── Hyper-V Isolation Mode.md
+│   │   │   └── Readiness Automation/
+│   │   │       ├── PowerShell Health Checks.md
+│   │   │       └── Upgrade Blockers Database.md
+│   │   ├── UI Customization/
+│   │   │   ├── Start Menu Layouts.md
+│   │   │   ├── Widgets Configuration.md
+│   │   │   ├── Taskbar Settings Management.md
+│   │   │   ├── Dark Mode Policies.md
+│   │   │   ├── Touch/Pen Optimizations.md
+│   │   │   └── Multi-Monitor Behavior.md
+│   │   └── Security Enhancements/
+│   │       ├── Smart App Control Guide.md
+│   │       ├── Pluton Security Processor.md
+│   │       ├── Virtualization-Based Security (VBS).md
+│   │       ├── Credential Guard Integration.md
+│   │       ├── Secured-Core PC Configuration.md
+│   │       └── Firmware Attack Mitigation.md
+│   ├── Edge Browser Stack/
+│   │   ├── Enterprise Deployment/
+│   │   │   ├── Group Policy Templates.md
+│   │   │   ├── Extension Management.md
+│   │   │   ├── Configuration Profiles.md
+│   │   │   ├── Chromium Policy Management.md
+│   │   │   ├── ADMX Template Central Store.md
+│   │   │   └── Enterprise Site List Management.md
+│   │   ├── Developer Tools/
+│   │   │   ├── PWA Conversion Guide.md
+│   │   │   ├── WebView2 Integration.md
+│   │   │   ├── F12 Developer Tools Overview.md
+│   │   │   ├── Debugging Extensions.md
+│   │   │   ├── Performance Profiling.md
+│   │   │   └── Enterprise Dev Tools Policies.md
+│   │   └── Security Hub/
+│   │       ├── Tracking Prevention.md
+│   │       ├── Certificate Management.md
+│   │       ├── Microsoft Defender SmartScreen.md
+│   │       ├── InPrivate Mode Enforcement.md
+│   │       ├── Password Manager Policies.md
+│   │       └── Zero-Day Exploit Mitigations.md
+│   ├── Enterprise Management/
+│   │   ├── Windows Autopilot/
+│   │   │   ├── Self-Deploying Mode.md
+│   │   │   └── Pre-Provisioning (White Glove).md
+│   │   ├── Compliance Policies/
+│   │   │   ├── Device Health Attestation.md
+│   │   │   └── Network Access Control.md
+│   │   ├── Application Control/
+│   │   │   ├── WDAC (Windows Defender Application Control).md
+│   │   │   └── AppLocker Migration Guide.md
+│   │   └── Unified Endpoint Manager/
+│   │       ├── Co-Management with ConfigMgr.md
+│   │       └── Tenant Attach Scenarios.md
+│   ├── Security & Compliance/
+│   │   ├── Attack Surface Reduction/
+│   │   │   ├── ASR Rule Customization.md
+│   │   │   └── Network Protection Rules.md
+│   │   ├── Threat Detection/
+│   │   │   ├── Defender for Endpoint Integration.md
+│   │   │   └── Custom Detection Rules (KQL).md
+│   │   ├── Compliance Frameworks/
+│   │   │   ├── NIST 800-171 Configuration.md
+│   │   │   └── ISO 27001 Controls.md
+│   │   └── Data Protection/
+│   │       ├── EFS (Encrypting File System).md
+│   │       └── RMS Integration.md
+│   ├── Automation & DevOps/
+│   │   ├── Infrastructure-as-Code (IaC)/
+│   │   │   ├── Desired State Configuration (DSC).md
+│   │   │   └── Ansible Playbooks for Windows.md
+│   │   ├── CI/CD Pipelines/
+│   │   │   ├── Golden Image Automation.md
+│   │   │   └── Patch Validation Workflows.md
+│   │   └── Monitoring as Code/
+│   │       ├── Azure Monitor Agent Config.md
+│   │       └── Custom Log Collection.md
+│   ├── Advanced Scenarios/
+│   │   ├── Multi-Session Environments/
+│   │   │   ├── Windows 10/11 Multi-Session Tuning.md
+│   │   │   └── Profile Container Optimization.md
+│   │   ├── Kiosk Mode/
+│   │   │   ├── Assigned Access Configuration.md
+│   │   │   └── Shell Launcher Customization.md
+│   │   ├── IoT & Embedded Systems/
+│   │   │   ├── Windows IoT Core Setup.md
+│   │   │   └── Long-Term Servicing Channel (LTSC).md
+│   │   └── Legacy OS Migration/
+│   │       ├── Windows 7 ESU Workarounds.md
+│   │       └── Server 2008 Migration Paths.md
+│   └── User Support/
+│       ├── Migration Playbooks/
+│       │   ├── User State Migration Tool (USMT).md
+│       │   └── Enterprise State Roaming.md
+│       ├── Training & Adoption/
+│       │   ├── Windows 11 Feature Rollout.md
+│       │   └── Edge Productivity Tips.md
+│       └── Self-Service Portals/
+│           ├── Quick Assist Integration.md
+│           └── Knowledge Base Templates.md
+├── Extended Ecosystem/
+│   ├── Office Productivity/
+│   │   ├── Macro Security Center/
+│   │   │   ├── VBA Project Protection.md
+│   │   │   ├── Add-In Validation Framework.md
+│   │   │   ├── Trusted Locations Configuration.md
+│   │   │   ├── Digital Signatures for Macros.md
+│   │   │   ├── GPO-Based Macro Settings.md
+│   │   │   └── Office Trusted Documents.md
+│   │   └── Co-Authoring Suite/
+│   │       ├── AutoSave Configuration/
+│   │       │   ├── Conflict Resolution Policies.md
+│   │       │   └── Version History Retention.md
+│   │       ├── Version Conflict Resolution/
+│   │       │   ├── Merge Strategies for Excel.md
+│   │       │   └── Document Locking Workflows.md
+│   │       ├── Shared Workbook Management/
+│   │       │   ├── Permissions Granularity.md
+│   │       │   └── External User Access.md
+│   │       ├── Real-Time Collaboration/
+│   │       │   ├── Presence Indicators.md
+│   │       │   └── Comments/Annotations.md
+│   │       └── Cross-Platform Sync/
+│   │           ├── SharePoint Integration.md
+│   │           └── Teams Collaboration Tabs.md
+│   ├── OneDrive Platform/
+│   │   ├── Sync Engine/
+│   │   │   ├── Known Folder Redirection.md
+│   │   │   ├── Block-Level Copy Guide.md
+│   │   │   ├── Selective Sync Configuration.md
+│   │   │   ├── Sync Health Monitoring/
+│   │   │   │   ├── Client Log Analysis.md
+│   │   │   │   └── Network Bandwidth Throttling.md
+│   │   │   ├── Enterprise Sync Limits.md
+│   │   │   ├── Offline Access Configuration.md
+│   │   │   └── Azure Files Sync Hybrid.md
+│   │   └── Governance Center/
+│   │       ├── Retention Label Strategies/
+│   │       │   ├── Auto-Apply Labels via AI.md
+│   │       │   └── Label Migration Playbook.md
+│   │       ├── DLP Policy Integration/
+│   │       │   ├── Sensitive Data Detection.md
+│   │       │   └── Policy Tip Customization.md
+│   │       ├── Sharing Link Management/
+│   │       │   ├── Expiration Policies.md
+│   │       │   └── Anonymous Access Controls.md
+│   │       ├── Legal Hold & eDiscovery.md
+│   │       └── Storage Metrics & Reporting.md
+│   └── Intune Command Center/
+│       ├── Enrollment Factory/
+│       │   ├── Autopilot Troubleshooting/
+│       │   │   ├── Hardware Hash Extraction.md
+│       │   │   └── Enrollment Status Page (ESP) Logs.md
+│       │   ├── Bulk Enrollment Strategies/
+│       │   │   ├── CSV File Templates.md
+│       │   │   └── White Glove Pre-Provisioning.md
+│       │   ├── Conditional Access Policies for Enrollment/
+│       │   │   ├── Device Compliance Checks.md
+│       │   │   └── Network Location Restrictions.md
+│       │   ├── Platform-Specific Enrollment/
+│       │   │   ├── iOS DEP Integration.md
+│       │   │   └── Android Enterprise COPE.md
+│       │   └── Hybrid Azure AD Join Scenarios.md
+│       └── Compliance Engine/
+│           ├── Conditional Access Integration/
+│           │   ├── Device vs User Risk Policies.md
+│           │   └── Session Controls.md
+│           ├── Remediation Scripts Library/
+│           │   ├── PowerShell Examples.md
+│           │   ├── Win32 App Dependency Checks.md
+│           │   └── Script Error Handling.md
+│           ├── Compliance Policy Creation Guide/
+│           │   ├── OS-Specific Baselines.md
+│           │   └── Custom Compliance Scripts.md
+│           ├── Reporting & Auditing/
+│           │   ├── Non-Compliance Trends.md
+│           │   └── GDPR Audit Trails.md
+│           └── Defender for Endpoint Integration.md
+│   ├── Cross-Component Scenarios/
+│   │   ├── Office + OneDrive Co-Authoring.md
+│   │   ├── Intune-Enforced Office Policies.md
+│   │   └── Conditional Access for OneDrive.md
+│   └── Security & Automation/
+│       ├── Zero Trust Workflows/
+│       │   ├── Least Privilege Access for Office.md
+│       │   └── Continuous Access Evaluation.md
+│       ├── Graph API Automation/
+│       │   ├── Office 365 Management API.md
+│       │   └── Intune PowerShell SDK.md
+│       └── Backup & Recovery/
+│           ├── OneDrive Version Restore.md
+│           └── Office 365 Backup Strategies.md
