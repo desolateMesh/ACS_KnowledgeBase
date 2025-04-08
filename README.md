@@ -1,6 +1,6 @@
 # ACS Knowledge Base
 
-> If you find an empty directory, refer to the Application Structure document to determine the appropriate Markdown file to create. (This structure will be added soon.)
+> If you find an empty directory, refer to the Application Structure document to determine the appropriate Markdown file to create, ACS_Knowledge_Base_Structure.txt.
 
 ## 📘 Overview
 
