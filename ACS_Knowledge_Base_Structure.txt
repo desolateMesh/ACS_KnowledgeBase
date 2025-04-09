@@ -4,60 +4,6 @@ ACS_KnowledgeBase/
 │   ├── Printer Ecosystem/
 │   │   ├── Driver Management/
 │   │   │   ├── Installation Methods/
-│   │   │   │   ├── Cloud-Based Driver Deployment.md (e.g., Intune/Endpoint Manager)
-│   │   │   │   └── Linux-Unix Driver Compatibility Guide.md
-│   │   │   └── Driver Rollback and Version Control.md
-│   │   ├── Network Configuration/
-│   │   │   ├── Cloud Printing Protocols/
-│   │   │   │   ├── Google Cloud Print Migration Guide.md
-│   │   │   │   ├── Mopria Alliance Standards.md
-│   │   │   │   └── AirPrint Configuration for Enterprise.md
-│   │   │   └── SD-WAN Optimization for Distributed Printers.md
-│   │   ├── Security Framework/
-│   │   │   ├── Zero-Trust Printer Models.md
-│   │   │   ├── Firmware Security Patching Workflows.md
-│   │   │   └── AI-Driven Threat Detection for Print Jobs.md
-│   │   └── Maintenance Hub/
-│   │       ├── Predictive Maintenance with IoT Sensors.md
-│   │       └── 3D Printer Maintenance Addendum.md
-│   └── Troubleshooting Center/
-│       ├── Cloud Print Job Failures.md
-│       ├── Cross-Platform Compatibility Issues.md (macOS/Linux/Windows)
-│       └── API Integration Debugging Guide.md (e.g., REST/SOAP)
-│
-├── Cloud Service Management/
-│   ├── Multi-Cloud Print Strategies/
-│   │   ├── AWS IoT Print Integration.md
-│   │   ├── Azure Universal Print Deployment.md
-│   │   └── Hybrid Cloud Print Architectures.md
-│   ├── Serverless Print Workflows/
-│   │   ├── AWS Lambda Print Queues.md
-│   │   └── Azure Functions for Print Automation.md
-│   ├── Edge Computing for Printers/
-│   │   ├── Localized Print Job Processing.md
-│   │   └── IoT Gateway Configuration.md
-│   └── Disaster Recovery/
-│       ├── Cloud Print Redundancy Plans.md
-│       └── Backup Strategies for On-Prem Print Servers.md
-│
-├── Sustainability & Compliance/
-│   ├── Energy-Efficient Configuration Guides/
-│   │   ├── Power Saving Modes Optimization.md
-│   │   └── ENERGY STAR Certification Setup.md
-│   ├── Recycling & Circular Economy/
-│   │   ├── Toner Cartridge Recycling Programs.md
-│   │   └── Printer Hardware EOL Disposal SOPs.md
-│   └── Regulatory Compliance/
-│       ├── GDPR Print Job Logging Requirements.md
-│       ├── HIPAA-Compliant Print Workflows.md
-│       └── ISO 27001 for Print Infrastructure.md
-│
-ACS_KnowledgeBase/
-├── Executive Summary.md
-├── Comprehensive Guide to Printer Setups/
-│   ├── Printer Ecosystem/
-│   │   ├── Driver Management/
-│   │   │   ├── Installation Methods/
 │   │   │   │   ├── Cloud-Based Driver Deployment.md
 │   │   │   │   └── Linux-Unix Driver Compatibility Guide.md
 │   │   │   └── Driver Rollback and Version Control.md
@@ -230,7 +176,55 @@ ACS_KnowledgeBase/
 │   │   │   │   │   ├── ...
 │   │   │   └── Industry Specific Architectures/
 │   │   │       ├── Healthcare HIPAA Ready Architecture/
-│   │   │       │   ├── ...
+│   │   │       │   ├── README.md
+│   │   │       │   ├── design-patterns.md
+│   │   │       │   ├── implementation-guide.md
+│   │   │       │   ├── troubleshooting.md
+│   │   │       │   ├── real-world-examples.md
+│   │   │       │   ├── diagrams/
+│   │   │       │   │   └── architecture.drawio
+│   │   │       │   └── infra-samples/
+│   │   │       │       └── template.json
+│   │   │       ├── Finance High Security Topologies/
+│   │   │       │   ├── README.md
+│   │   │       │   ├── design-patterns.md
+│   │   │       │   ├── implementation-guide.md
+│   │   │       │   ├── troubleshooting.md
+│   │   │       │   ├── real-world-examples.md
+│   │   │       │   ├── diagrams/
+│   │   │       │   │   └── architecture.drawio
+│   │   │       │   └── infra-samples/
+│   │   │       │       └── template.json
+│   │   │       ├── Retail with Dynamic Loads/
+│   │   │       │   ├── README.md
+│   │   │       │   ├── design-patterns.md
+│   │   │       │   ├── implementation-guide.md
+│   │   │       │   ├── troubleshooting.md
+│   │   │       │   ├── real-world-examples.md
+│   │   │       │   ├── diagrams/
+│   │   │       │   │   └── architecture.drawio
+│   │   │       │   └── infra-samples/
+│   │   │       │       └── template.json
+│   │   │       ├── Gaming with Low-Latency Demands/
+│   │   │       │   ├── README.md
+│   │   │       │   ├── design-patterns.md
+│   │   │       │   ├── implementation-guide.md
+│   │   │       │   ├── troubleshooting.md
+│   │   │       │   ├── real-world-examples.md
+│   │   │       │   ├── diagrams/
+│   │   │       │   │   └── architecture.drawio
+│   │   │       │   └── infra-samples/
+│   │   │       │       └── template.json
+│   │   │       ├── Manufacturing and IoT/
+│   │   │       │   ├── README.md
+│   │   │       │   ├── design-patterns.md
+│   │   │       │   ├── implementation-guide.md
+│   │   │       │   ├── troubleshooting.md
+│   │   │       │   ├── real-world-examples.md
+│   │   │       │   ├── diagrams/
+│   │   │       │   │   └── architecture.drawio
+│   │   │       │   └── infra-samples/
+│   │   │       │       └── template.json
 │   │   │
 │   │   ├── Integration_Guidelines/
 │   │       ├── Data Center Printer Scaling.md
