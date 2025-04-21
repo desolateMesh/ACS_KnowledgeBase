@@ -1,6 +1,6 @@
 {
   `path`: `C:\\Users\\jrochau\\projects\\ACS_KnowledgeBase\\Advanced Use Cases\\High-Volume Environments\\Existing Files\\Load Balancing Print Servers.md`,
-  `content`: `# Load Balancing Print Servers in High-Volume Environments
+  `content`: `# Load Balancing Print Servers in High-Volume Environments}
 
 ## Overview
 This document provides comprehensive guidance on implementing load-balanced print server architectures for high-volume environments. It covers architectural design patterns, implementation methodologies, optimization strategies, and troubleshooting approaches specifically designed for enterprise-scale print infrastructures that must maintain high availability and performance under significant load.
