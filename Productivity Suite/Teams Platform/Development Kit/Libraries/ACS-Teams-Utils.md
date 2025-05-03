@@ -1035,8 +1035,7 @@ function enableDetailedLogging() {
     window.downloadAcsLogs = function() {
         const logText = logs.map(log => 
             `[${log.timestamp.toISOString()}] [${log.type.toUpperCase()}] ${JSON.stringify(log.message)}`
-        ).join('\
-');
+        ).join('\n');
         
         const blob = new Blob([logText], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
