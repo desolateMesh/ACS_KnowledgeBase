@@ -1,110 +1,114 @@
-# DevOpsReleaseNotifierBot – Webhook Configuration Guide
+# DevOps Release Notifier Bot – Webhook Configuration Guide
 
 ## Table of Contents
-- [Overview](#overview)
-- [Supported CI/CD Sources](#supported-cicd-sources)
-- [Webhook Endpoint Details](#webhook-endpoint-details)
-- [Deployment Prerequisites](#deployment-prerequisites)
-- [Webhook Setup Instructions](#webhook-setup-instructions)
-- [Payload Schema](#payload-schema)
-- [Authentication & Validation](#authentication--validation)
-- [Error Handling & Common Failures](#error-handling--common-failures)
-- [Testing & Simulation](#testing--simulation)
-- [Monitoring & Logging](#monitoring--logging)
-- [Security Considerations](#security-considerations)
-- [Scalability & Reliability](#scalability--reliability)
-- [Change Management & Versioning](#change-management--versioning)
-- [Appendix: Example Payloads](#appendix-example-payloads)
+
+1. [Introduction](#introduction)
+2. [Supported CI/CD Integrations](#supported-cicd-integrations)
+3. [Webhook Endpoint Specifications](#webhook-endpoint-specifications)
+4. [Deployment Prerequisites](#deployment-prerequisites)
+5. [Webhook Configuration Instructions](#webhook-configuration-instructions)
+6. [Payload Schema Definition](#payload-schema-definition)
+7. [Authentication & Validation](#authentication--validation)
+8. [Error Handling & Troubleshooting](#error-handling--troubleshooting)
+9. [Testing and Simulation](#testing-and-simulation)
+10. [Monitoring & Telemetry](#monitoring--telemetry)
+11. [Security Best Practices](#security-best-practices)
+12. [Scalability and Fault Tolerance](#scalability-and-fault-tolerance)
+13. [Versioning and Backward Compatibility](#versioning-and-backward-compatibility)
+14. [Appendix: Sample Payloads](#appendix-sample-payloads)
 
 ---
 
-## Overview
+## Introduction
 
-The `DevOpsReleaseNotifierBot` leverages webhook event subscriptions to receive release-related payloads from CI/CD systems (primarily Azure DevOps and GitHub). These webhook events are parsed, validated, and forwarded into Microsoft Teams channels using the bot’s adaptive card notification system.
-
-This guide defines how to configure, secure, and troubleshoot the webhook ingestion pipeline.
+The DevOps Release Notifier Bot enables delivery of release event notifications from CI/CD systems (Azure DevOps, GitHub Actions, Jenkins, etc.) into Microsoft Teams. This guide provides comprehensive instructions for configuring the bot's webhook endpoint to receive, authenticate, and process these notifications securely and reliably.
 
 ---
 
-## Supported CI/CD Sources
+## Supported CI/CD Integrations
 
-| Source         | Events Supported                    | Notes |
-|----------------|--------------------------------------|-------|
-| Azure DevOps   | Release Created, Release Completed, Approval Pending | Via service hooks |
-| GitHub         | `release`, `workflow_run`, `deployment_status`      | Requires PAT or GitHub App |
-| GitHub Actions | Workflow run notifications           | Triggered by successful pipelines |
-| Jenkins        | Manual webhook POST (custom JSON)    | Requires adapter |
-| Custom CI/CD   | Any system capable of JSON POST      | Must conform to schema |
+| CI/CD Provider | Supported Events                                     | Notes                       |
+| -------------- | ---------------------------------------------------- | --------------------------- |
+| Azure DevOps   | Release Created, Release Completed, Approval Pending | Via Service Hooks           |
+| GitHub         | `release`, `workflow_run`, `deployment_status`       | Requires PAT or App Secret  |
+| GitHub Actions | Workflow Completion Events                           | Relay via GitHub Webhooks   |
+| Jenkins        | Custom Webhook Trigger                               | JSON POST via script        |
+| Custom Systems | JSON POST to endpoint                                | Must follow schema contract |
 
 ---
 
-## Webhook Endpoint Details
+## Webhook Endpoint Specifications
 
-- **Endpoint Path**: `/api/webhook`
-- **HTTP Method**: `POST`
-- **Content Type**: `application/json`
-- **Authentication (Optional)**:
-  - HMAC with `X-Signature-256` (GitHub)
-  - Header-based shared secret (`x-api-key`)
-- **Expected Response**:
-  - `200 OK` or `202 Accepted`
-  - `400 Bad Request` for invalid payloads
-  - `401/403` for failed auth
+* **HTTP Method**: POST
+* **Endpoint**: `/api/webhook`
+* **Content-Type**: `application/json`
+* **Authentication Options**:
+
+  * HMAC SHA256 signature (`X-Hub-Signature-256` – GitHub)
+  * Header-based secret (`x-api-key`)
+* **Response Codes**:
+
+  * `200 OK` / `202 Accepted` – Accepted or queued
+  * `400 Bad Request` – Schema violation or malformed payload
+  * `401 Unauthorized` / `403 Forbidden` – Auth failure
 
 ---
 
 ## Deployment Prerequisites
 
-- Publicly available HTTPS endpoint (Azure App Service, Function App, or API Gateway)
-- Valid TLS/SSL certificate
-- Endpoint registered in Teams bot manifest
-- Azure Application Insights enabled
-- AppSettings variables:
-  - `WEBHOOK_SECRET`
-  - `ALLOWED_SOURCES` (optional IP filter)
-  - `ENABLE_SIGNATURE_VALIDATION` = true/false
+* Deployed bot backend with HTTPS (Function App, App Service, etc.)
+* TLS/SSL certificate (required for GitHub and Teams)
+* Registered endpoint in Microsoft Teams bot manifest
+* AppSettings keys:
+
+  * `WEBHOOK_SECRET`
+  * `ENABLE_SIGNATURE_VALIDATION`
+  * `ALLOWED_SOURCES` (IP allow list – optional)
 
 ---
 
-## Webhook Setup Instructions
+## Webhook Configuration Instructions
 
-### Azure DevOps
+### Azure DevOps Service Hook
 
-1. Go to `Project Settings > Service Hooks`
-2. Choose **Web Hooks** as the consumer
-3. Select an event (e.g., Release Completed)
-4. Set payload URL:
-   ```
-   https://<your-domain>/api/webhook
-   ```
-5. Set filters (optional)
-6. Save and send test
+1. Navigate to `Project Settings > Service Hooks`
+2. Select **Web Hooks** and choose desired event (e.g., `Release Completed`)
+3. Set the **Payload URL**:
 
-### GitHub
+   ```
+   https://<YOUR_DOMAIN>/api/webhook
+   ```
+4. (Optional) Add filters by branch or environment
+5. Save and test the configuration
 
-1. Go to repository → Settings → Webhooks → Add webhook
-2. Payload URL:
-   ```
-   https://<your-domain>/api/webhook
-   ```
-3. Set content type to `application/json`
-4. Set secret (same as `WEBHOOK_SECRET`)
-5. Events: `release`, `workflow_run`, `deployment_status`
-6. Save and test using “Redeliver”
+### GitHub Webhook
+
+1. Go to **Settings > Webhooks** in your repository
+2. Add a new webhook:
+
+   * **Payload URL**:
+
+     ```
+     https://<YOUR_DOMAIN>/api/webhook
+     ```
+   * **Content Type**: `application/json`
+   * **Secret**: Match `WEBHOOK_SECRET`
+3. Select Events: `release`, `workflow_run`, `deployment_status`
+4. Save and test with **Redeliver** option
 
 ---
 
-## Payload Schema
+## Payload Schema Definition
 
-All incoming payloads must conform to this core contract:
+Webhook payloads must follow this JSON structure:
 
 ```json
 {
   "source": "azure-devops" | "github" | "jenkins" | "custom",
-  "eventType": "releaseCreated" | "releaseCompleted" | "workflowRun",
+  "eventType": "releaseCompleted" | "releaseCreated" | "workflowRun",
   "project": {
-    "name": "AppService",
-    "id": "a1b2c3d4"
+    "name": "MyProject",
+    "id": "abc123"
   },
   "release": {
     "name": "Release-2025.05.01",
@@ -114,78 +118,84 @@ All incoming payloads must conform to this core contract:
   },
   "repository": {
     "provider": "GitHub",
-    "name": "my-repo",
-    "commitHash": "abc123"
+    "name": "repo-name",
+    "commitHash": "abcdef123456"
   },
   "timestamp": "2025-05-01T16:21:00Z"
 }
 ```
 
-Required fields:
-- `source`, `eventType`, `project.name`, `release.name`, `release.status`, `timestamp`
+> Required fields: `source`, `eventType`, `release.name`, `release.status`, `timestamp`
 
 ---
 
 ## Authentication & Validation
 
-### Signature Validation (GitHub)
-If enabled:
-1. HMAC SHA256 using `WEBHOOK_SECRET`
-2. Compare against `X-Hub-Signature-256` header
-3. Reject if mismatch or missing
+### GitHub Signature Validation
 
-### Timestamp Drift Protection
-Reject payloads older than `5 minutes` from `timestamp`
+* Enabled by `ENABLE_SIGNATURE_VALIDATION=true`
+* Steps:
 
-### Optional IP Validation
-Whitelist GitHub / Azure DevOps IP blocks via middleware
+  1. Compute HMAC SHA256 using `WEBHOOK_SECRET`
+  2. Compare with `X-Hub-Signature-256` header
+  3. Reject request if mismatched
 
----
+### Timestamp Validation
 
-## Error Handling & Common Failures
+* Reject any payloads older than **5 minutes** (UTC drift protection)
 
-| Code | Symptom                                  | Resolution |
-|------|------------------------------------------|------------|
-| 400  | Invalid/missing JSON fields              | Validate schema against contract |
-| 401  | Missing or invalid webhook secret        | Check shared secret or GitHub signature |
-| 403  | Unauthorized IP or org                   | Validate source and token scope |
-| 422  | Unknown eventType                        | Extend parser to handle new type |
-| 500  | Unexpected exception in handler          | Check telemetry and retry with test payload |
+### IP Filtering (Optional)
 
-Bot will return descriptive error messages with `errorCode` and `traceId`.
+* Enforce source IP restrictions using IP allowlist from `ALLOWED_SOURCES`
 
 ---
 
-## Testing & Simulation
+## Error Handling & Troubleshooting
 
-### Curl Test
+| Code | Condition                     | Action                                                       |
+| ---- | ----------------------------- | ------------------------------------------------------------ |
+| 400  | Schema violation              | Validate JSON fields, refer to payload contract              |
+| 401  | Missing/invalid signature     | Validate shared secret or GitHub signature                   |
+| 403  | Unauthorized IP or access     | Check IP allowlist or token scope                            |
+| 422  | Unknown `eventType` value     | Extend parser to support additional event types              |
+| 500  | Internal processing exception | Review logs in Application Insights; retry with test payload |
+
+> All errors include `errorCode` and `traceId` for diagnostics.
+
+---
+
+## Testing and Simulation
+
+### Curl Test Example
 
 ```bash
-curl -X POST https://your-domain/api/webhook \
+curl -X POST https://<YOUR_DOMAIN>/api/webhook \
   -H "Content-Type: application/json" \
-  -H "x-api-key: your-secret" \
+  -H "x-api-key: <WEBHOOK_SECRET>" \
   -d @sample-payload.json
 ```
 
-### GitHub Redeliver
+### GitHub Delivery Simulation
 
-- Go to Webhook → “Recent Deliveries”
-- Click a failed event → “Redeliver”
+* Navigate to repository webhook settings
+* Click on recent event → **Redeliver** to retry
 
-### Azure DevOps
+### Azure DevOps Trigger
 
-- Manually trigger pipeline
-- Confirm webhook event in service hook logs
+* Trigger a pipeline manually
+* Confirm webhook logs in Service Hooks dashboard
 
 ---
 
-## Monitoring & Logging
+## Monitoring & Telemetry
 
-- **Application Insights**:
-  - `customEvent: webhook_received`
-  - `customMetric: webhook_processing_duration_ms`
-  - Exception stack traces, correlation IDs
-- **Kusto Query**:
+* **Azure Application Insights**
+
+  * `customEvent: webhook_received`
+  * `customMetric: webhook_duration_ms`
+  * Traceable exceptions and request correlation
+
+#### Kusto Query Example
 
 ```kusto
 requests
@@ -193,61 +203,57 @@ requests
 | order by timestamp desc
 ```
 
-- **Teams Delivery Status**: Logged per message
-- **Enable traces** with env: `APPINSIGHTS_INSTRUMENTATIONKEY`
+---
+
+## Security Best Practices
+
+* Enforce HTTPS on all endpoints
+* Store `WEBHOOK_SECRET` securely in Azure Key Vault
+* Do not log full payloads with PII or secrets
+* Limit retries to prevent replay abuse
+* Implement idempotency for duplicate events
+* Enable rate limiting (via Azure API Management / Front Door)
 
 ---
 
-## Security Considerations
+## Scalability and Fault Tolerance
 
-- Validate every payload against schema
-- Never log secrets or tokens
-- Implement retry limits and idempotency
-- Rate limit using Azure Front Door or API Gateway
-- Use encrypted secret storage (Key Vault)
-
----
-
-## Scalability & Reliability
-
-- Use `queue-based ingestion` for processing payloads
-- Return `202 Accepted` immediately; offload processing to worker
-- Scale app service or function app with autoscaling rules
-- Track dropped events using dead-letter telemetry
+* Use queue-based ingestion (Azure Queue Storage / Service Bus)
+* Return `202 Accepted` immediately and defer heavy processing
+* Enable autoscaling on App Service or Function Plan
+* Track dropped messages via dead-letter queue or failed telemetry
 
 ---
 
-## Change Management & Versioning
+## Versioning and Backward Compatibility
 
-- Version parser by `eventType` and `source`
-- Include `schemaVersion` in future payloads
-- Backward compatibility must be preserved for API clients
-- All schema changes logged and version-controlled in Git
+* Include `schemaVersion` in payloads for versioned parsing
+* Maintain compatibility for all known versions
+* Version-based routing handled by webhook dispatcher logic
+* Track and version payload schema in Git (in `schemas/` folder)
 
 ---
 
-## Appendix: Example Payloads
+## Appendix: Sample Payloads
 
-### Azure DevOps – Release Completed
+### Sample: Azure DevOps Release Completed
 
 ```json
 {
   "source": "azure-devops",
   "eventType": "releaseCompleted",
-  "project": {
-    "name": "CoreAPI"
-  },
+  "project": { "name": "AppService" },
   "release": {
-    "name": "Release-Prod-2025.05.02",
+    "name": "Release-Prod-2025.05.01",
     "status": "succeeded",
     "environment": "Production",
-    "triggeredBy": "Manual"
+    "triggeredBy": "CI Pipeline"
   },
-  "timestamp": "2025-05-02T17:04:00Z"
+  "timestamp": "2025-05-01T18:00:00Z"
 }
 ```
 
-### GitHub – Release Published
+### Sample: GitHub Release
 
 ```json
 {
@@ -255,15 +261,14 @@ requests
   "eventType": "release",
   "repository": {
     "provider": "GitHub",
-    "name": "bot-service",
-    "commitHash": "abcdef123456"
+    "name": "notifier-service",
+    "commitHash": "def456abc789"
   },
   "release": {
-    "name": "v2.4.1",
+    "name": "v3.2.0",
     "status": "published",
     "environment": "prod",
-    "triggeredBy": "release-automation"
+    "triggeredBy": "release-pipeline"
   },
-  "timestamp": "2025-05-02T16:45:00Z"
+  "timestamp": "2025-05-02T10:35:00Z"
 }
-```
