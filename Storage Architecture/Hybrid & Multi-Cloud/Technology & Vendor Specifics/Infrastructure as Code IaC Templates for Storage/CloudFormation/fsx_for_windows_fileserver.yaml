@@ -1,0 +1,246 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AWS CloudFormation Template for FSx for Windows File Server - A high-performance, fully managed file storage built on Windows Server'
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: 'Network Configuration'
+        Parameters:
+          - VpcId
+          - SubnetIds
+      - Label:
+          default: 'FSx for Windows Configuration'
+        Parameters:
+          - StorageCapacity
+          - ThroughputCapacity
+          - WindowsConfiguration
+          - DeploymentType
+          - PreferredSubnetId
+          - StorageType
+      - Label:
+          default: 'Active Directory Configuration'
+        Parameters:
+          - DirectoryId
+          - DomainName
+          - AdminUsername
+          - AdminPassword
+      - Label:
+          default: 'Backup and Maintenance Configuration'
+        Parameters:
+          - BackupRetentionDays
+          - DailyAutomaticBackupStartTime
+          - WeeklyMaintenanceStartTime
+      - Label:
+          default: 'Security Configuration'
+        Parameters:
+          - SecurityGroupIds
+          - KmsKeyId
+          - AuditLogConfiguration
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC where the FSx for Windows File Server will be deployed
+
+  SubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: Subnets where the FSx for Windows File Server will be deployed (2 subnets for Multi-AZ, 1 for Single-AZ)
+
+  PreferredSubnetId:
+    Type: AWS::EC2::Subnet::Id
+    Description: Preferred subnet for the primary file server (required for Multi-AZ)
+    Default: ''
+
+  StorageCapacity:
+    Type: Number
+    Description: Storage capacity in GiB (32-65536)
+    Default: 300
+    MinValue: 32
+    MaxValue: 65536
+
+  ThroughputCapacity:
+    Type: Number
+    Description: Throughput capacity in MB/s
+    Default: 16
+    AllowedValues: [8, 16, 32, 64, 128, 256, 512, 1024, 2048]
+
+  StorageType:
+    Type: String
+    Description: Type of storage for the file system
+    Default: SSD
+    AllowedValues: [SSD, HDD]
+
+  DeploymentType:
+    Type: String
+    Description: Single-AZ or Multi-AZ deployment
+    Default: SINGLE_AZ_1
+    AllowedValues:
+      - SINGLE_AZ_1
+      - SINGLE_AZ_2
+      - MULTI_AZ_1
+
+  DirectoryId:
+    Type: String
+    Description: Directory Services ID for Microsoft Active Directory (leave empty for AWS Managed AD)
+    Default: ''
+
+  DomainName:
+    Type: String
+    Description: Domain name for the file system
+    Default: 'corp.example.com'
+
+  AdminUsername:
+    Type: String
+    Description: Admin username for self-managed AD integration
+    Default: 'Admin'
+
+  AdminPassword:
+    Type: String
+    Description: Admin password for self-managed AD integration
+    NoEcho: true
+    MinLength: 8
+    MaxLength: 64
+
+  SecurityGroupIds:
+    Type: List<AWS::EC2::SecurityGroup::Id>
+    Description: Security groups to associate with the file system
+    Default: ''
+
+  KmsKeyId:
+    Type: String
+    Description: KMS key ID for encryption (leave blank for AWS managed key)
+    Default: ''
+
+  BackupRetentionDays:
+    Type: Number
+    Description: Number of days to retain automatic backups (0-90)
+    Default: 30
+    MinValue: 0
+    MaxValue: 90
+
+  DailyAutomaticBackupStartTime:
+    Type: String
+    Description: Daily automatic backup window in UTC (format: HH:MM)
+    Default: '02:00'
+    AllowedPattern: '^([01]?[0-9]|2[0-3]):([0-5][0-9])$'
+
+  WeeklyMaintenanceStartTime:
+    Type: String
+    Description: Weekly maintenance window in UTC (format: d:HH:MM)
+    Default: '7:02:00'
+    AllowedPattern: '^[1-7]:([01]?[0-9]|2[0-3]):([0-5][0-9])$'
+
+  AuditLogConfiguration:
+    Type: String
+    Description: Enable audit log configuration (either DISABLED or enable with LOG_GROUP:DESTINATION_ARN)
+    Default: 'DISABLED'
+
+Conditions:
+  IsMultiAZ: !Equals [!Ref DeploymentType, 'MULTI_AZ_1']
+  HasDirectoryId: !Not [!Equals [!Ref DirectoryId, '']]
+  HasKmsKeyId: !Not [!Equals [!Ref KmsKeyId, '']]
+  HasSecurityGroups: !Not [!Equals [!Join ['', !Ref SecurityGroupIds], '']]
+  HasPreferredSubnet: !And 
+    - !Condition IsMultiAZ
+    - !Not [!Equals [!Ref PreferredSubnetId, '']]
+  AuditLogEnabled: !Not [!Equals [!Ref AuditLogConfiguration, 'DISABLED']]
+
+Resources:
+  FSxFileSystem:
+    Type: AWS::FSx::FileSystem
+    Properties:
+      FileSystemType: WINDOWS
+      StorageCapacity: !Ref StorageCapacity
+      StorageType: !Ref StorageType
+      SubnetIds: !Ref SubnetIds
+      SecurityGroupIds: !If [HasSecurityGroups, !Ref SecurityGroupIds, !Ref 'AWS::NoValue']
+      KmsKeyId: !If [HasKmsKeyId, !Ref KmsKeyId, !Ref 'AWS::NoValue']
+      WindowsConfiguration:
+        ThroughputCapacity: !Ref ThroughputCapacity
+        ActiveDirectoryId: !If [HasDirectoryId, !Ref DirectoryId, !Ref 'AWS::NoValue']
+        DeploymentType: !Ref DeploymentType
+        PreferredSubnetId: !If [HasPreferredSubnet, !Ref PreferredSubnetId, !Ref 'AWS::NoValue']
+        SelfManagedActiveDirectoryConfiguration: !If 
+          - HasDirectoryId
+          - !Ref 'AWS::NoValue' 
+          - 
+            DomainName: !Ref DomainName
+            OrganizationalUnitDistinguishedName: !Ref 'AWS::NoValue'
+            FileSystemAdministratorsGroup: 'Domain Admins'
+            UserName: !Ref AdminUsername
+            Password: !Ref AdminPassword
+            DnsIps: !Ref 'AWS::NoValue'
+        AuditLogConfiguration: !If
+          - AuditLogEnabled
+          - 
+            FileAccessAuditLogLevel: SUCCESS_AND_FAILURE
+            FileShareAccessAuditLogLevel: SUCCESS_AND_FAILURE
+            AuditLogDestination: !Ref AuditLogConfiguration
+          - !Ref 'AWS::NoValue'
+      BackupConfiguration:
+        AutomaticBackupRetentionDays: !Ref BackupRetentionDays
+        DailyAutomaticBackupStartTime: !Ref DailyAutomaticBackupStartTime
+        CopyTagsToBackups: true
+      WeeklyMaintenanceStartTime: !Ref WeeklyMaintenanceStartTime
+      Tags:
+        - Key: Name
+          Value: !Sub '${AWS::StackName}-FSx-Windows'
+        - Key: Environment
+          Value: !Ref 'AWS::StackName'
+
+  FSxFileSystemBackupPolicy:
+    Type: AWS::FSx::FileSystem::BackupPolicy
+    Properties:
+      FileSystemId: !Ref FSxFileSystem
+      BackupPolicy:
+        Status: !If [!Equals [!Ref BackupRetentionDays, 0], 'DISABLED', 'ENABLED']
+
+Outputs:
+  FileSystemId:
+    Description: FSx for Windows File Server file system ID
+    Value: !Ref FSxFileSystem
+    Export:
+      Name: !Sub '${AWS::StackName}-FSxFileSystemId'
+
+  FileSystemDNSName:
+    Description: DNS name for the file system
+    Value: !GetAtt FSxFileSystem.DNSName
+    Export:
+      Name: !Sub '${AWS::StackName}-FSxDNSName'
+
+  WindowsFileSystemDNSName:
+    Description: DNS name for mounting the file system using the UNC path
+    Value: !Join ['', ['\\\\', !GetAtt FSxFileSystem.DNSName]]
+    Export:
+      Name: !Sub '${AWS::StackName}-FSxUNCPath'
+
+  RemoteAdminDNSName:
+    Description: DNS name for administrative operation (remote PowerShell)
+    Value: !GetAtt FSxFileSystem.RemoteAdministrationEndpoint
+    Export:
+      Name: !Sub '${AWS::StackName}-FSxAdminEndpoint'
+
+  ActiveDirectoryType:
+    Description: Type of Active Directory configuration used
+    Value: !If [HasDirectoryId, 'AWS Managed Microsoft AD or Self-managed AD', 'Self-managed AD Configuration']
+    Export:
+      Name: !Sub '${AWS::StackName}-ADType'
+
+  DeploymentMode:
+    Description: Deployment type of the file system
+    Value: !Ref DeploymentType
+    Export:
+      Name: !Sub '${AWS::StackName}-DeploymentType'
+
+  StorageCapacityInfo:
+    Description: Storage capacity of the file system
+    Value: !Sub '${StorageCapacity} GiB'
+    Export:
+      Name: !Sub '${AWS::StackName}-StorageCapacity'
+
+  ThroughputCapacityInfo:
+    Description: Throughput capacity of the file system
+    Value: !Sub '${ThroughputCapacity} MB/s'
+    Export:
+      Name: !Sub '${AWS::StackName}-ThroughputCapacity'
