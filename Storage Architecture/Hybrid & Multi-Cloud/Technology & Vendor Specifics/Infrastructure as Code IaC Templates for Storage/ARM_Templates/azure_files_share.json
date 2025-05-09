@@ -1,0 +1,217 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the storage account where the Azure Files share will be created"
+            }
+        },
+        "fileShareName": {
+            "type": "string",
+            "defaultValue": "default-share",
+            "metadata": {
+                "description": "The name of the Azure Files share to be created"
+            }
+        },
+        "fileShareQuota": {
+            "type": "int",
+            "defaultValue": 5120,
+            "minValue": 1,
+            "maxValue": 102400,
+            "metadata": {
+                "description": "The maximum size of the file share in GiB. Must be between 1 and 102400 (100 TiB)."
+            }
+        },
+        "tier": {
+            "type": "string",
+            "defaultValue": "TransactionOptimized",
+            "allowedValues": [
+                "TransactionOptimized",
+                "Hot",
+                "Cool",
+                "Premium"
+            ],
+            "metadata": {
+                "description": "The access tier of the file share. Available values are TransactionOptimized, Hot, Cool, and Premium."
+            }
+        },
+        "enableLargeFileShares": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Enable or disable support for large file shares up to 100TiB"
+            }
+        },
+        "protocolSettings": {
+            "type": "object",
+            "defaultValue": {
+                "smb": {
+                    "versions": "SMB3.0;SMB3.1.1",
+                    "authenticationMethods": "NTLMv2;Kerberos",
+                    "kerberosTicketEncryption": "RC4-HMAC;AES-256",
+                    "channelEncryption": "AES-128-CCM;AES-128-GCM;AES-256-GCM"
+                }
+            },
+            "metadata": {
+                "description": "Protocol settings for SMB file shares including version, authentication, and encryption"
+            }
+        },
+        "accessTier": {
+            "type": "string",
+            "defaultValue": "TransactionOptimized",
+            "allowedValues": [
+                "TransactionOptimized",
+                "Hot",
+                "Cool",
+                "Premium"
+            ],
+            "metadata": {
+                "description": "Access tier for the file share"
+            }
+        },
+        "shareAccessTier": {
+            "type": "string",
+            "defaultValue": "TransactionOptimized",
+            "allowedValues": [
+                "TransactionOptimized",
+                "Hot",
+                "Cool",
+                "Premium"
+            ],
+            "metadata": {
+                "description": "Access tier for the file share (redundant with accessTier, included for backward compatibility)"
+            }
+        },
+        "rootSquash": {
+            "type": "string",
+            "defaultValue": "NoRootSquash",
+            "allowedValues": [
+                "NoRootSquash",
+                "RootSquash",
+                "AllSquash"
+            ],
+            "metadata": {
+                "description": "Root squash setting for NFS shares"
+            }
+        },
+        "enabledProtocols": {
+            "type": "string",
+            "defaultValue": "SMB",
+            "allowedValues": [
+                "SMB",
+                "NFS",
+                "SMB,NFS"
+            ],
+            "metadata": {
+                "description": "Protocols enabled for the file share (SMB, NFS, or both)"
+            }
+        },
+        "snapshotSchedule": {
+            "type": "object",
+            "defaultValue": {
+                "enabled": true,
+                "hourlySchedule": {
+                    "enabled": true,
+                    "minute": 0,
+                    "retentionDays": 7,
+                    "snapshotsToKeep": 24
+                },
+                "dailySchedule": {
+                    "enabled": true,
+                    "hour": 0,
+                    "minute": 0,
+                    "retentionDays": 30,
+                    "snapshotsToKeep": 30
+                },
+                "weeklySchedule": {
+                    "enabled": true,
+                    "day": "Sunday",
+                    "hour": 0,
+                    "minute": 0,
+                    "retentionDays": 90,
+                    "snapshotsToKeep": 12
+                },
+                "monthlySchedule": {
+                    "enabled": true,
+                    "daysOfMonth": "1",
+                    "hour": 0,
+                    "minute": 0,
+                    "retentionDays": 365,
+                    "snapshotsToKeep": 12
+                }
+            },
+            "metadata": {
+                "description": "Configuration for automated snapshot schedules (hourly, daily, weekly, monthly)"
+            }
+        },
+        "tags": {
+            "type": "object",
+            "defaultValue": {
+                "environment": "production",
+                "department": "finance",
+                "application": "erp",
+                "costCenter": "123456"
+            },
+            "metadata": {
+                "description": "Tags to apply to the file share for organizational and cost management purposes"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources"
+            }
+        }
+    },
+    "variables": {
+        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
+            "apiVersion": "2023-01-01",
+            "name": "[format('{0}/default/{1}', parameters('storageAccountName'), parameters('fileShareName'))]",
+            "properties": {
+                "accessTier": "[parameters('accessTier')]",
+                "shareQuota": "[parameters('fileShareQuota')]",
+                "enabledProtocols": "[parameters('enabledProtocols')]",
+                "rootSquash": "[if(equals(parameters('enabledProtocols'), 'NFS'), parameters('rootSquash'), null())]",
+                "metadata": "[parameters('tags')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+            ]
+        },
+        {
+            "condition": "[parameters('snapshotSchedule').enabled]",
+            "type": "Microsoft.Storage/storageAccounts/fileServices/shares/snapshots",
+            "apiVersion": "2023-01-01",
+            "name": "[format('{0}/default/{1}/snapshot-{2}', parameters('storageAccountName'), parameters('fileShareName'), utcNow('yyyy-MM-dd-HH-mm'))]",
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/fileServices/shares', parameters('storageAccountName'), 'default', parameters('fileShareName'))]"
+            ]
+        }
+    ],
+    "outputs": {
+        "fileShareResourceId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Storage/storageAccounts/fileServices/shares', parameters('storageAccountName'), 'default', parameters('fileShareName'))]"
+        },
+        "fileShareUrl": {
+            "type": "string",
+            "value": "[format('https://{0}.file.core.windows.net/{1}', parameters('storageAccountName'), parameters('fileShareName'))]"
+        },
+        "storageAccountId": {
+            "type": "string",
+            "value": "[variables('storageAccountId')]"
+        },
+        "deploymentTime": {
+            "type": "string",
+            "value": "[utcNow('yyyy-MM-dd-HH-mm')]"
+        }
+    }
+}
