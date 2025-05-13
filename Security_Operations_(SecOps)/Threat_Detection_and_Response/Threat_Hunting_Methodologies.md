@@ -3030,5 +3030,4 @@ Remember: Effective threat hunting is not just about tools and techniques—it's
 
 *Document Version: 1.0*  
 *Last Updated: [Current Date]*  
-*Classification: Security Operations Reference*  
-*Next Review: [Quarterly]*
+*Classification: Security Operations Reference* 
