@@ -14,7 +14,6 @@
 11. [Tools and Resources](#tools-and-resources)
 12. [Automation Scripts](#automation-scripts)
 13. [Best Practices](#best-practices)
-14. [Contact Information](#contact-information)
 
 ## Overview
 
