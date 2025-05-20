@@ -1272,8 +1272,3 @@ dashboards:
 - [Security Update Guide](https://msrc.microsoft.com/update-guide/)
 
 ---
-
-**Document Version:** 1.0  
-**Last Updated:** 2024  
-**Review Cycle:** Quarterly  
-**Owner:** Security Operations Team
